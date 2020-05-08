@@ -1,0 +1,129 @@
+@import "global";
+$background: white;
+$foreground: black;
+$imgSize: 3vw;
+
+@mixin animate{
+    opacity: 0;
+    transform: translateX(10px);
+}
+.largeScreen {
+  display: block;
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  z-index: 200;
+  color: $foreground;
+  display: block;
+  .background {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    top: 0;
+    z-index: 1;
+    div {
+      background-color: $background;
+      height: 100%;
+      width: 0%;
+      margin-left: auto;
+      opacity: 0;
+    }
+  }
+  .grid {
+    background: none;
+    position: absolute;
+    z-index: 10;
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas:
+      "nav back img"
+      "nav . img"
+      "nav social img";
+    .back {
+      grid-area: back;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      div {
+        @include animate;
+        display: flex;
+        justify-content: flex-end;
+          padding-right: 12%;
+          img {
+            object-fit: cover;
+            height: $imgSize;  
+              transform: scale(-1); 
+              cursor: pointer;
+              box-sizing: content-box;
+              padding: $imgSize / 6;
+          }
+      }
+    }
+    .sidenav {
+      grid-area: nav;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      padding: 9% 9%;
+      h1 {
+        @include largeSer;
+          @include animate;
+          cursor: pointer;
+          position: relative;
+          display: flex;
+          width: fit-content;
+          padding: $largeFont / 6;
+          .circle{
+              margin-top: $largeFont * .5;
+              margin-bottom: auto;
+              margin-right: $largeFont / 8;
+              width: $largeFont / 5;
+              height: $largeFont / 5;
+              background-color: black;
+              border-radius: 100px;
+              opacity: 0;
+          }
+          .circle2{
+              display: none;
+          }
+          .active > .circle{
+              display: none;
+          }
+          .active > .circle2{
+              opacity: 1;
+              display: block;
+          }
+      }
+    }
+    .social {
+      grid-area: social;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      div {
+        display: flex;
+        justify-content: space-around;
+          a{
+              @include animate;
+          }
+        img {
+          object-fit: cover;
+          width: $imgSize;
+          height: $imgSize;
+            box-sizing: content-box;
+          padding: $imgSize / 8;
+            cursor: pointer;
+        }
+      }
+    }
+    .img {
+      grid-area: img;
+      @include animate;
+    }
+  }
+}

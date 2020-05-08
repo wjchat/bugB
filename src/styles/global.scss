@@ -1,0 +1,28 @@
+$sans: 'Montserrat';
+$serrif: 'Cormorant';
+$headerFont: 8vw;
+$largeFont: 5vw;
+$medFont: 3vw;
+$smallFont: 1.3vw;
+$backgroundColor: #fbf7f5; 
+
+@mixin largeSer {
+    font-family: $serrif;
+    font-size: $largeFont;
+    font-weight: 100;
+}
+@mixin headSer {
+    font-family: $serrif;
+    font-size: $headerFont;
+    font-weight: 700;
+}
+@mixin largeSans{
+    font-family: $sans;
+    font-size: $medFont;
+    font-weight: 300;
+}
+@mixin smallSans{
+    font-family: $sans;
+    font-size: $smallFont;
+    font-weight: 300;
+}

@@ -1,0 +1,126 @@
+@import "./global.scss";
+
+$navHeight: 8vw;
+$circleSize: 0.4vw;
+.nav {
+  z-index: 100;
+  height: $navHeight;
+  width: 100%;
+  padding: $navHeight/6 3%;
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+    pointer-events: none;
+  .one {
+    transform: scale(1.1);
+  }
+  .image {
+    height: $navHeight;
+    opacity: 0;
+    transform: translateX(-10px);
+    cursor: pointer;
+    position: relative;
+      pointer-events: all;
+    .pop {
+      position: absolute;
+      height: 0.5vw;
+      width: 0.5vw;
+      border-radius: 50px;
+      background-color: black;
+      opacity: 0;
+    }
+    .pop1 {
+      left: 0;
+      top: 0;
+    }
+    .pop2 {
+      right: 0;
+      top: 0;
+    }
+    .pop3 {
+      left: 0;
+      bottom: 0;
+    }
+    .pop4 {
+      right: 0;
+      bottom: 0;
+    }
+    .pop5 {
+      top: -11%;
+      left: 47%;
+    }
+    .pop6 {
+      bottom: -11%;
+      left: 47%;
+    }
+    .pop7 {
+      left: -11%;
+      top: 47%;
+    }
+    .pop8 {
+      right: -11%;
+      top: 47%;
+    }
+      a{
+          height: 100%;
+          width: 100%;
+      }
+    img {
+      max-height: 100%;
+      max-width: 100%;
+    }
+  }
+  .linkContainer {
+    pointer-events: all;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    .navMenu{
+        display: none;        
+    }
+    .flexC {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      width: 27vw;
+      & > div {
+        opacity: 0;
+        transform: translateY(30%);
+      }
+    }
+  }
+}
+.navItem {
+    pointer-events: all;
+  display: flex;
+  .circle {
+    height: $circleSize;
+    width: $circleSize;
+    margin: auto 0;
+    border-radius: 10vw;
+    background-color: black;
+    opacity: 0;
+  }
+  h1 {
+    margin-left: 3px;
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    box-sizing: border-box;
+    @include smallSans;
+  }
+    .circle2{
+        opacity: 1;
+        display: none;
+    }
+    .active{
+        .circle{
+            display: none;
+        }
+        .circle2{
+            display: block;
+        }
+    }
+
+}

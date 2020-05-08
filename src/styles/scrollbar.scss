@@ -1,0 +1,11 @@
+@import "global";
+
+.scrollBar{
+    position: fixed;
+    width: 5px;
+    right: 1.5vw;
+    background-color: black;
+    top: 11vh;
+    border-radius: 10px;
+    opacity: 0;
+}

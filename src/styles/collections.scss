@@ -1,0 +1,53 @@
+@import "global";
+
+.collectionsContainer{
+    min-height: 100vh;
+    &>.header{
+        padding-top: 40vh;
+        text-align: center;
+        h1{
+            @include largeSer;
+        }
+    }
+    .flexbox{
+        margin-top: 40vh;
+        margin-bottom: 10vh;
+        display: flex;
+        flex-flow: wrap;
+        .link{
+            height: 100%;
+            width: 100%;
+            position: relative;
+        }
+        .collection{
+            width: 50%;
+            height: 70vh;
+            position: relative;
+            cursor: pointer;
+            overflow: hidden;
+            .overlay{
+                z-index: 10;
+                background-color: rgba(0,0,0,.1);
+                position: absolute;
+                height: 100%;
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                .name{
+                    width: 100%;
+                    text-align: center;
+                    @include largeSans;
+                    color: white;
+                }
+            }
+            .image{
+                object-fit: cover;
+                height: 100%;
+                width: 100%;
+                z-index: 5;
+                transform: scale(1.1)
+            }
+        }
+    }
+}

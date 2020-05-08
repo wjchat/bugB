@@ -1,0 +1,49 @@
+@import "global";
+
+.productsContainer {
+  padding-top: 30vh;
+  & > h1 {
+    @include largeSer;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20vh;
+  }
+  & > .flexbox {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    & > .item {
+      width: 33.3%;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20vh;
+      & > div {
+        width: 70%;
+          text-align: center;
+          &>h1{
+              @include largeSans;
+              font-size: $smallFont;
+              font-weight: 500;
+              padding-top: 1vw;
+          }          
+          &>h2{
+              @include smallSans;
+              padding-top: 1vw;
+              display: flex;
+              flex-direction: column;
+              justify-content: space-between;
+              span{
+                  padding-bottom: 1vw;
+              }
+          }
+        img {
+          object-fit: cover;
+          width: 100%;
+            height: 30vw;
+            cursor: pointer;
+        }
+      }
+    }
+  }
+}

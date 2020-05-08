@@ -1,0 +1,79 @@
+@import './global.scss';
+
+.arrivalsContainer{
+    width: 100%;
+    display: grid;
+    height: 120vh;
+    margin-top: 10%;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+        "txt feat"
+        "collection feat"
+        "collection featA"
+        "collection featA";
+    & > div{
+        overflow: hidden;
+        position: relative;
+    }
+    .text{
+        grid-area: txt;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        overflow: visible;
+        h1{
+            font-family: $serrif;
+            font-size: $headerFont;
+            font-weight: 300; 
+            padding-left: 7%;
+            line-height: 100%;
+            
+        }
+    }
+    div{
+        &>a{
+            width: 100%;
+            height: 100%;
+        }
+    }
+    .collection{
+        grid-area: collection;
+    }
+    .feat1{
+        grid-area: feat;
+    }    
+    .feat2{
+        grid-area: featA;
+    }
+    .image{
+            object-fit: cover;
+            width: 100%;
+            min-height: 100%;
+            object-position: center;
+            overflow: visible;
+    }
+    .overlay{
+        position: absolute;
+        z-index: 5;
+        background-color: rgba(0,0,0,.6);
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        color: $backgroundColor;
+        font-weight: normal;
+        text-align: center;
+        cursor: pointer;
+        filter: blur(5px);
+        opacity: 0;
+        h2{
+            @include largeSans
+        }
+        h3{
+            margin-top: 3%;
+            @include smallSans
+        }
+    }
+}

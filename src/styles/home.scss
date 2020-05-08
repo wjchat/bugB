@@ -1,0 +1,56 @@
+@import './global.scss';
+
+$startX: translateX(-5%);
+
+.home{
+    .title{
+        min-height: 100vh;
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        .mainContain{
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            padding: 0 11%;
+        }
+        .animateIn{
+             transform: $startX;
+            opacity: 0;
+        }
+        .image{
+            object-fit: cover;
+            max-width: 40vw;
+            max-height: 80vh;
+            margin-left: 6%;
+        }
+        .image2{
+            max-height: 43vh;
+            max-width: 47vw; 
+            position: absolute;
+            bottom: 0vh;
+            left: 0;
+            margin-left: 30%;
+            object-fit: cover;
+            padding-bottom: 2%;
+        }
+        .rightContain{
+            display: flex;
+            flex-flow: column;
+            justify-content: center;
+            width: 50%;
+        }
+        .text{
+            margin-left: auto;
+            @include largeSer;
+            text-align: right;
+            z-index: 3;
+            div{
+                opacity: 0;
+                transform: $startX;
+                padding: 0;
+                width: 100%;
+            }
+        }
+    }
+}
