@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react"
-import { TimelineMax, TweenLite } from "gsap"
+import { TimelineMax, TweenLite, gsap } from "gsap"
 import Menu from "./navMenu.jsx"
 import Logo from "../images/logo.svg"
 import TransitionLink from 'gatsby-plugin-transition-link'
@@ -10,29 +10,33 @@ const NavContain = React.forwardRef((props, ref) => {
   let animate
   let tl = new TimelineMax({ paused: true })
   let duration = 0.3
-    
   useEffect(() => {
-    let lastScroll = 0
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > window.innerHeight * .5) {
-        if (window.scrollY > lastScroll) {
-          let tween = TweenLite.to(animate, duration,{
-              y: -10,
-              opacity: 0,
-          })
-          lastScroll = window.scrollY
-        } else {
-          let tween = TweenLite.to(animate, duration,{
-              y: 0,
-              opacity: 1,
-          })
-          lastScroll = window.scrollY
-        }
-      }
-    })
-  })
+    if(animate != null){
+        const an = animate;
+        let lastScroll = 0
+        window.addEventListener("scroll", () => {
+          if (window.scrollY > window.innerHeight * .5) {
+            if (window.scrollY > lastScroll) {
+              an.classList.remove("pointerEvents")
+              let tween = TweenLite.to(an, duration,{
+                  y: -10,
+                  opacity: 0, 
+              })
+              lastScroll = window.scrollY
+            } else {
+              an.classList.add("pointerEvents")
+              let tween = TweenLite.to(an, duration,{
+                  y: 0,
+                  opacity: 1,
+              })
+              lastScroll = window.scrollY
+            }
+          }
+        }, {passive: true})
+    }
+  }, [animate])
   return (
-    <nav ref={div => (animate = div)} className="nav">
+    <nav ref={div => (animate = div)} className="nav pointerEvents">
       {props.children}
     </nav>
   )
@@ -62,7 +66,7 @@ const NavItem = props => {
   })
   return (
     <div
-      className="navItem"
+      className="navItem pointerChild"
       onMouseEnter={() => toggleLine(true)}
       onMouseLeave={() => toggleLine(false)}
     >
@@ -213,7 +217,7 @@ const Header = (props) => {
         onMouseLeave={()=>mouseOut()}
         onMouseOver={()=>mouseIn()}
         ref={div => (one = div)}
-        className="image"
+        className="image pointerChild"
       >
         <TransitionLink
         onClick = {()=>mouseOut()}
@@ -234,7 +238,7 @@ const Header = (props) => {
         <div className="pop pop7" ref={div => (pop7 = div)}></div>
         <div className="pop pop8" ref={div => (pop8 = div)}></div>
       </div>
-      <div className="linkContainer">
+      <div className="linkContainer pointerChild">
         <div ref={div => (menu = div)} className="navMenu">
           {navMen ? <Menu toggleNav = {props.toggleNav} /> : ""}
         </div>

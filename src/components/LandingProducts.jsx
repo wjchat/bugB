@@ -4,13 +4,13 @@ import products from './data'
 import {useStaticQuery, graphql} from "gatsby"
 
 const LandingCard = props =>{
-    const [currentImage, updateImate] = useState(props.item.images.publicURL)
+    const [currentImage, updateImate] = useState(props.item.image.publicURL)
     return(<div className = {props.className}>
        <div>
            <a href={props.item.link} target = "__blank">
                 <img 
-                onMouseEnter = {()=>updateImate(props.item.images.publicURL)}
-                onMouseLeave = {()=>updateImate(props.item.images.publicURL)}
+                onMouseEnter = {()=>updateImate(props.item.image.publicURL)}
+                onMouseLeave = {()=>updateImate(props.item.image.publicURL)}
                 src={currentImage} alt={props.item.name}/>
             </a>
             <h1>{props.item.name}</h1>
@@ -28,15 +28,13 @@ const LandingProducts = props =>{
           node {
             id
             clothing_pieces {
-              Piece {
                 name
                 price
                 link
                 size
-                images {
+                image {
                   publicURL
                 }
-              }
             }
           }
         }
@@ -55,7 +53,7 @@ const LandingProducts = props =>{
         <h1>From the most recent collection</h1>
         <div className = "flexbox">
             {clothing.map((item) =>
-                <LandingCard className = "item" key = {item.Piece[0].name} item = {item.Piece[0]} />
+                <LandingCard className = "item" key = {item.name} item = {item} />
             )}
         </div>
     </div>)

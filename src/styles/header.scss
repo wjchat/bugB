@@ -20,7 +20,7 @@ $circleSize: 0.4vw;
     transform: translateX(-10px);
     cursor: pointer;
     position: relative;
-      pointer-events: all;
+      pointer-events: inherit;
     .pop {
       position: absolute;
       height: 0.5vw;
@@ -71,7 +71,7 @@ $circleSize: 0.4vw;
     }
   }
   .linkContainer {
-    pointer-events: all;
+    pointer-events: inherit;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -92,7 +92,7 @@ $circleSize: 0.4vw;
   }
 }
 .navItem {
-    pointer-events: all;
+    pointer-events: inherit;
   display: flex;
   .circle {
     height: $circleSize;
@@ -122,5 +122,9 @@ $circleSize: 0.4vw;
             display: block;
         }
     }
-
+}
+.pointerEvents{
+    .pointerChild{
+        pointer-events: all !important;
+    }
 }
