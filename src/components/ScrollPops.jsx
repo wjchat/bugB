@@ -27,7 +27,7 @@ const ScrollPops =props=>{
             //reset everything
 //            for(let each of animate.childNodes){
 //                gsap.set(each, {
-//                    opacity: 0,
+//                    opacity: 0
 //                })
 //            }
             
