@@ -1,6 +1,6 @@
 import React,{useEffect, useState} from 'react';
 import Layout from "../components/layout.jsx"
-import Insta from "../components/insta.jsx"
+import Insta from "../components/Insta.jsx"
 import Values from "../components/values.jsx"
 import "../styles/about.scss"
 import {graphql, useStaticQuery} from "gatsby"
