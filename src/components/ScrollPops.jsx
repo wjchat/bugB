@@ -55,7 +55,7 @@ const ScrollPops =props=>{
     }, [tween])
     return(<div ref = {div=>animate=div} className = "scrollPopContainer">
         {Array.apply(null, { length: numPop }).map((e, i) => (
-                <img className = "papi" src="https://img.icons8.com/ios-filled/50/000000/circled.png"/> 
+                <img key = {i} className = "papi" src="https://img.icons8.com/ios-filled/50/000000/circled.png"/> 
 ))}
     </div>)
 }

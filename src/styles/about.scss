@@ -1,0 +1,10 @@
+@import "global";
+
+.aboutContainer{
+    h1{
+        padding-top: 40vh;
+        @include largeSer;
+        width: 100%;
+        text-align: center;
+    }
+}

@@ -1,0 +1,45 @@
+@import "global";
+
+.values{
+    display: flex;
+    width: 100%;
+    padding: 0 5vw;
+    padding-top: 0vh;
+    
+    &>.first{
+        width: 50%;
+          position: -webkit-sticky; /* Safari */
+          position: sticky;
+          top: 1px;
+        position: relative;
+        ul{
+            height: 100vh;
+            position: absolute;
+            bottom: auto;
+            top: 0;
+            width: fit-content;
+            margin-top: auto;
+            justify-content: center;
+            display: flex;
+            flex-direction: column;
+              li{
+                list-style: none;
+                @include headSer;
+                padding: .5vw 0;
+                font-size: 7vw;
+            }      
+        }
+    }
+    &>.second{
+        padding-left: 5vw;
+        width: 50%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        padding-top: 90vh;
+        p{
+            @include largeSans;
+        }
+    }
+}
