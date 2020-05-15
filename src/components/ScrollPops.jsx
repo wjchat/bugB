@@ -6,16 +6,19 @@ const ScrollPops =props=>{
     let animate
     const [tween, updateTween] = useState(null)
     const [numPop, updateNumPop] = useState(0)
-    const [windowHeight, updateWindowHeight] = useState(window.innerHeight)
+    const [windowHeight, updateWindowHeight] = useState(null)
     useEffect(()=>{
         window.addEventListener("resize", ()=>{
             updateWindowHeight(window.innerHeight)
         })
     }, [])
-    
     useEffect(()=>{
-        let numPopz = Math.round(windowHeight / 15);
-        updateNumPop(22);
+        if(windowHeight === null){
+            updateWindowHeight(window.innerHeight)
+        }else{
+            let numPopz = Math.round(windowHeight / 15);
+            updateNumPop(22);
+        }
     }, [windowHeight])
     
     useEffect(()=>{
