@@ -1,8 +1,6 @@
 import React,{useState, useEffect} from 'react';
 import "../styles/landingProducts.scss"
-import products from './data'
 import {useStaticQuery, graphql} from "gatsby"
-import externalLink from "../images/newWindow.png"
 import gsap from 'gsap'
 
 const LandingCard = props =>{

@@ -1,7 +1,6 @@
 import React, { useEffect, useCallback } from "react"
 import "../styles/home.scss"
 
-import homeIMG from "../images/home.jpg"
 
 import { TimelineMax, TweenMax } from "gsap"
 import { useStaticQuery, graphql } from "gatsby"

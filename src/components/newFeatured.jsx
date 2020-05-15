@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from "react"
-import CollectionIMG from "../images/home.jpg"
-import CollectionIMG2 from "../images/home2.jpg"
 
 import { TweenLite } from "gsap"
 import { useStaticQuery, graphql, Link } from "gatsby"

@@ -2,7 +2,6 @@ import React, { useEffect, useCallback } from "react"
 import { TweenLite, TimelineMax, Power2 } from "gsap"
 import {Link, useStaticQuery, graphql} from 'gatsby';
 import "../styles/largeNav.scss"
-import Image from "../images/home.jpg"
 import ImgWindow from './ImgWindow.jsx'
 import insta from "../images/instagram.svg"
 import facebook from "../images/facebook.svg"

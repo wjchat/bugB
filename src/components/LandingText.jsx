@@ -2,13 +2,8 @@ import React, { useEffect, useState } from "react"
 import { TweenLite, TimelineMax, gsap, Power2 } from "gsap"
 import ParrallaxBox from "./ParrallaxBox.jsx"
 
-import Image1 from "../images/home.jpg"
-import Image2 from "../images/home2.jpg"
-import Image3 from "../images/home3.jpg"
 import "../styles/frontText.scss"
 import { useStaticQuery, graphql } from "gatsby"
-
-let images = [Image1, Image2, Image3]
 
 const ImageFlip = props => {
   const [current, updateCurrent] = useState(0)
