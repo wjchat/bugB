@@ -7,7 +7,8 @@ const ScrollBar = props => {
   let [showing, updateShow] = useState(false)
   useEffect(() => {
     let topPercent = 0.1 * window.innerHeight
-    let height = 200000 / document.body.clientHeight
+//    let height = 200000 / document.body.clientHeight
+    let height = 5;
     gsap.set(animate, {
       height: height,
     })
@@ -17,9 +18,13 @@ const ScrollBar = props => {
       paused: true,
     })
     window.addEventListener("resize", () => {
+        console.log('ok')
       tween.progress(
         window.scrollY / (document.body.scrollHeight - window.innerHeight)
       )
+    gsap.set(animate, {
+      height: 200000 / document.body.clientHeight,
+    })
     })
     window.addEventListener("scroll", () => {
       tween.progress(

@@ -144,8 +144,7 @@ const NewFeaturedContainer = (props) => {
     <div ref = {div=>passProps=div} className="arrivalsContainer">
       <div className="text">
         <h1>
-          New & <br />
-          Featured
+          New & Featured
         </h1>
       </div>
       <div className="collection">

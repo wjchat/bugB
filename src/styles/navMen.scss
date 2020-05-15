@@ -4,20 +4,24 @@ $thisHeight: 2vw;
 .navMen{
     height: $thisHeight;
     width: $thisHeight;
-    margin-top: $thisHeight/2;
-    display: flex;
-    flex-flow: column;
-    justify-content: space-around;
-    cursor: pointer;
-    box-sizing: content-box;
     padding: $thisHeight * .3;
-    div{
-        height: $thisHeight / 6;
-        background-color: black;
-        padding: 0;
-        border-radius: 1px;
-        width: 0;
-        opacity: 0;
-        
+    box-sizing: content-box;
+    cursor: pointer;
+    transform: translateX($thisHeight * .3); //to offset padding
+    & > .container{
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-flow: column;
+        justify-content: space-around;
+        box-sizing: content-box;
+        div{
+            height: $thisHeight * .158;
+            background-color: black;
+            padding: 0;
+            border-radius: 3px;
+            width: 0;
+            opacity: 0;
+        }
     }
 }

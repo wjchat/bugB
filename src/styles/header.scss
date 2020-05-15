@@ -6,25 +6,28 @@ $circleSize: 0.4vw;
   z-index: 100;
   height: $navHeight;
   width: 100%;
-  padding: $navHeight/6 3%;
+  padding: $navHeight/6 5vw;
   display: flex;
   justify-content: space-between;
   position: fixed;
     pointer-events: none;
   .one {
     transform: scale(1.1);
-  }
+    }
   .image {
-    height: $navHeight;
+    height: 5.35vw;
+      width: 5.35vw;
     opacity: 0;
-    transform: translateX(-10px);
     cursor: pointer;
     position: relative;
       pointer-events: inherit;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     .pop {
       position: absolute;
-      height: 0.5vw;
-      width: 0.5vw;
+      height: 0.4vw;
+      width: 0.4vw;
       border-radius: 50px;
       background-color: black;
       opacity: 0;
@@ -66,8 +69,9 @@ $circleSize: 0.4vw;
           width: 100%;
       }
     img {
-      max-height: 100%;
-      max-width: 100%;
+      height: 100%;
+        width: auto;
+        object-fit: cover;
     }
   }
   .linkContainer {
@@ -82,11 +86,11 @@ $circleSize: 0.4vw;
     .flexC {
       display: flex;
       flex-direction: row;
-      justify-content: space-around;
-      width: 27vw;
+      justify-content: space-between;
+      width: 24vw;
       & > div {
         opacity: 0;
-        transform: translateY(30%);
+        transform: translateY(30%) rotate(1deg);
       }
     }
   }

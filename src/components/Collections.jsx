@@ -37,9 +37,6 @@ const CollectionCard = props =>{
             })
         }
     }, [hovering])
-    useEffect(()=>{
-        console.log(props.transitionOut)
-    })
     return(<div ref = {div=>animate=div} className = {props.className}
        onMouseEnter = {()=>updateHover(true)}
        onMouseLeave = {()=>updateHover(false)}

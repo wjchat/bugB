@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { TweenLite, TimelineMax } from "gsap"
+import { TweenLite, TimelineMax, gsap, Power2 } from "gsap"
 import ParrallaxBox from "./ParrallaxBox.jsx"
 
 import Image1 from "../images/home.jpg"
@@ -80,17 +80,14 @@ const Text = () => {
           }
           let next = ref.childNodes
           items.push(next[1])
-          items.push(next[2])
+//          items.push(next[2])
 
-          tl.staggerTo(
-            items,
-            1.3,
-            {
+          tl.staggerTo(items,1,{
               opacity: 1,
               y: 0,
-            },
-            0.15
-          )
+              rotate: "0deg",
+              ease: Power2.easeOut,
+            },0.1)
 
           animated = true
         }
@@ -107,7 +104,7 @@ const Text = () => {
       <h2>
         {landingText}
       </h2>
-      <ParrallaxBox duration={0.9} speed={-0.2} className="box1 imgContainer">
+      <ParrallaxBox duration={0.1} speed={0.4} className="box1 imgContainer">
         <ImageFlip imgsrc = {imgscr} className="image" />
       </ParrallaxBox>
     </div>

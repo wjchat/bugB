@@ -22,32 +22,24 @@
     width: 100%;
     display: flex;
     .imageContainer{
-        margin-left: 7%;
+        margin-left: 5%;
         height: 100%;
         width: 40%;
+        margin-right: 5%;
         position: relative;
-        .magnifier {
-            width: 100%;
-            height: 100% !important;
-            .magnifier-image{
-                object-fit: cover;
-                height: 100%;
-                width: 100%;
-                object-position: 50% 50%;
-            }
-        }
 
         .invisible{
             opacity: 0;
         }
         .deatsContainer{
-            height: 15vw;
+            height: 100%;
             width: 100%;
-            position: absolute;
             top: 0;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
             &>.deatsImageContainer{
                 width: 100%;
-                height: 100%;
                 display: flex;
                 justify-content: space-between;
                 &>img{
@@ -69,12 +61,13 @@
                 width: 100%;
                 display: flex;
                 flex-direction: column;
-                justify-content: flex-start;
-                padding-top: 5%;
+                justify-content: center;
+                height: 9vw;
                 h2{
                     @include largeSans;
                     width: 100%;
                     text-align: center;
+                    height: fit-content;
                 }
             }
             .priceSize{
@@ -82,7 +75,8 @@
                 display: flex;
                 flex-direction: column;
                 justify-content: flex-start;
-                padding: 5% 5%;
+                padding: 2.2vw 2vw;
+                padding-top: 0;
                 div{
                     display: flex;
                     flex-direction: row;
@@ -96,24 +90,32 @@
                 @include smallSans;
                 padding: 0 5%;
                 line-height: 130%;
+                height: 8vw;
                 text-align: center;
             }
         }
     }
     .articleContainer{
-        margin-left: 9%;
-        width: 36%;
+        margin-left: 5%;
+        width: 40%;
         height: 100%;
         display: flex;
-        flex-flow: wrap;
-        justify-content: space-between;
+        flex-direction: column;
+        justify-content: center;
+        &>.flexBox{
+            width: 90%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-left: auto;
+        }
     }
     .articleBox{
-        width: 50%;
         height: 50%;
+        padding: 2.5vh 0;
         .article{
+            width: 15vw; //same as imgContainer
             height: 100%;
-            width: 100%;
             display: flex;
             flex-direction: column;
             position: relative;
@@ -181,6 +183,22 @@
                     @include largeSans;
                     color: white;
                 }
+            }
+        }
+    }
+    .switcherContain{
+        height: 100%;
+        width: 100%;
+        position: relative;
+        &>div{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            .image{
+                object-fit: cover;
+                height: 100%;
+                width: 100%;
+                object-position: 50% 50%;
             }
         }
     }

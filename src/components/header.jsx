@@ -155,7 +155,7 @@ const Header = (props) => {
     let lastY = window.scrollY
     let tween = TweenLite.to(one, 1, {
       opacity: 1,
-      x: 0,
+//      x: 0,
     })
     let array = [two, three, four]
     tl.staggerTo(
@@ -164,6 +164,7 @@ const Header = (props) => {
       {
         opacity: 1,
         y: 0,
+        rotate: 0
       },
       0.2
     )

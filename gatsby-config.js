@@ -3,7 +3,7 @@ require("dotenv").config({
 })
 
 module.exports = {
-  pathPrefix: "/bugB2",
+  pathPrefix: "/bugb",
   siteMetadata: {
     title: `Bug B. Vintage`,
     description: `Edit this`,

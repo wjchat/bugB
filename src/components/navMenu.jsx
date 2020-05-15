@@ -83,13 +83,16 @@ const Menu = (props) => {
     <div
       onMouseEnter={()=>hover(true)}
       onMouseLeave={() => hover(false)}
-      ref={div => (animate = div)}
       className="navMen"
       onClick = {()=>handleClick()}
     >
-      <div></div>
-      <div className="extend"></div>
-      <div></div>
+     <div className  = "container"
+         ref={div => (animate = div)}
+         >
+          <div></div>
+          <div className="extend"></div>
+          <div></div>
+      </div>
     </div> 
   )
 }

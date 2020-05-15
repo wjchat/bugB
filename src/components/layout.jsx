@@ -14,6 +14,7 @@ import {gsap, Power2} from 'gsap'
 import { TransitionPortal } from "gatsby-plugin-transition-link";
 import Logo from '../images/logo.svg'
 import ScrollBar from './Scrollbar.jsx'
+import ScrollPops from "./ScrollPops.jsx"
 
 
 
@@ -96,7 +97,7 @@ const Layout = ({ children }) => {
        toggleNav = {() => toggleLarge(true)} />
       <main ref = {div=>passProps=div}>{children}</main>
       <Footer />
-      <ScrollBar />
+      <ScrollPops />
        </div>
       <TransitionPortal>
         <div ref = {div=>animate=div} className = "transitionPage">

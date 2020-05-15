@@ -2,15 +2,40 @@ import React,{useState, useEffect} from 'react';
 import "../styles/landingProducts.scss"
 import products from './data'
 import {useStaticQuery, graphql} from "gatsby"
+import externalLink from "../images/newWindow.png"
+import gsap from 'gsap'
 
 const LandingCard = props =>{
-    const [currentImage, updateImate] = useState(props.item.image.publicURL)
+    let animate
+    let duration = .2
+    const [hovering, updateHover] = useState(false)
+    const [currentImage, updateImage] = useState(props.item.image.publicURL)
+    useEffect(()=>{
+        if(hovering){
+            gsap.to(animate, duration,{
+//                scale: 1.05,
+            })
+        }else{
+            gsap.to(animate, duration,{
+//                scale: 1,
+            })
+        }
+    }, [hovering])
     return(<div className = {props.className}>
        <div>
-           <a href={props.item.link} target = "__blank">
+          {props.item.soldOut ? <div className = "soldOut">
+              <h3>Sold Out</h3>
+          </div> : ""}
+           <a href={props.item.link} 
+               target = "_blank"
+               onMouseEnter = {()=>updateHover(true)}
+               onMouseLeave = {()=>updateHover(false)}
+               className = "link"
+               >
                 <img 
-                onMouseEnter = {()=>updateImate(props.item.image.publicURL)}
-                onMouseLeave = {()=>updateImate(props.item.image.publicURL)}
+                ref = {div=>animate=div}
+                onMouseEnter = {()=>updateImage(props.item.image2.publicURL)}
+                onMouseLeave = {()=>updateImage(props.item.image.publicURL)}
                 src={currentImage} alt={props.item.name}/>
             </a>
             <h1>{props.item.name}</h1>
@@ -32,9 +57,13 @@ const LandingProducts = props =>{
                 price
                 link
                 size
+                soldOut
                 image {
                   publicURL
                 }
+                image2{
+                publicURL
+            }
             }
           }
         }

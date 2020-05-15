@@ -27,11 +27,13 @@ const ParrallaxBox = props => {
             yPos -= speed
             let tw = TweenLite.to(pBox, duration, {
               y: yPos,
+            ease: "none",
             })
           } else if (currentScroll < lastScrollTop) {
             yPos += speed
             let tw = TweenLite.to(pBox, duration, {
               y: yPos,
+            ease: "none",
             })
           }
           lastScrollTop = currentScroll

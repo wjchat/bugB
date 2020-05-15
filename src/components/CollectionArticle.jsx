@@ -2,7 +2,7 @@ import React,{useEffect, useState} from 'react'
 import "../styles/collectionsTemplate.scss"
 import externalLink from '../images/externalLink.svg';
 import letterX from '../images/letter-x.svg';
-import gsap from "gsap";
+import {gsap, Power2} from "gsap";
 import ReactMarkdown from "react-markdown" 
 import Magnifier from "react-magnifier";
 
@@ -98,52 +98,130 @@ const Article = props =>{
         </div>
     </div>)
 }
-const CollectionArticle = props =>{
-    let animate
-    const [articleDeats, updateArticle] = useState(null)
-    const [canUpdate, updateCanUpdate] = useState(true)
-    const handleUpdate = (article) =>{
-        console.log(article)
-        if(canUpdate){
-            if(article != null){ 
+const Switcher = props =>{
+    let anmt
+    const [slot1, updateSlot1] = useState(null)
+    const [slot2, updateSlot2] = useState(<img  className = "image" src = {props.item.image.publicURL} alt=""/>)
+    const [animate, updateAnimate] = useState(null)
+    useEffect(()=>{
+        if(anmt != null){
+            updateAnimate(anmt)
+        }
+    }, [anmt])
+    useEffect(()=>{
+        const duration = .3
+        if(animate != null){
+            if(slot1 === null){
+                console.log('firing1')
+               //get net frame ting
+                let nextFrame
+                if(props.articleDeats ===null){
+                    nextFrame = <img  className = "image" src = {props.item.image.publicURL} alt=""/>
+                } else{
+                    nextFrame = <ArticleDeats updateArticle = {(article) => props.updateArticle(article)} item = {props.articleDeats} />
+                }
+                //animation
                 let tl = gsap.timeline();
-                tl.call(()=>updateArticle(article))
-                tl.to(animate.childNodes[0], .2,{
+                tl.set(animate.getElementsByClassName("slot1")[0], {
                     opacity: 0,
+                    pointerEvents: "all",
                 })
-                tl.to(animate.childNodes[1], .2,{
+                tl.set(animate.getElementsByClassName("slot2")[0],{
                     opacity: 1,
-                }, 0)
-            }else{
+                    pointerEvents: "none",
+                })
+                //setup^
+                tl.call(()=>updateSlot1(nextFrame))
+                tl.to(animate.getElementsByClassName("slot1")[0], duration, {
+                    opacity: 1,
+                })
+                tl.to(animate.getElementsByClassName("slot2")[0], duration, {
+                    opacity: 0,
+                }, `-=${duration}`)
+                tl.call(()=>updateSlot2(null))
+            }else if(slot2 === null){
+                let nextFrame
+                if(props.articleDeats ===null){
+                    nextFrame = <img  className = "image" src = {props.item.image.publicURL} alt=""/>
+                } else{
+                    nextFrame = <ArticleDeats updateArticle = {(article) => props.updateArticle(article)} item = {props.articleDeats} />
+                }
+                //animation
                 let tl = gsap.timeline();
-                tl.to(animate.childNodes[0], .2,{
+                tl.set(animate.getElementsByClassName("slot2")[0], {
+                    opacity: 0,
+                    pointerEvents: "all",
+                })
+                tl.set(animate.getElementsByClassName("slot1")[0],{
+                    opacity: 1,
+                    pointerEvents: "none",
+                })
+                //setup^
+                tl.call(()=>updateSlot2(nextFrame))
+                tl.to(animate.getElementsByClassName("slot2")[0], duration, {
                     opacity: 1,
                 })
-                tl.to(animate.childNodes[1], .2,{
+                tl.to(animate.getElementsByClassName("slot1")[0], duration, {
                     opacity: 0,
-                }, 0)
-                tl.call(()=>updateArticle(article))
+                }, `-=${duration}`)
+                tl.call(()=>updateSlot1(null))
             }
         }
-
-
+}, [props.articleDeats, animate])
+    return(<div ref = {div=>anmt=div} className = "switcherContain">
+        <div className = "slot1">{slot1}</div>
+        <div className = "slot2">{slot2}</div>
+    </div>)
+}
+const CollectionArticle = props =>{
+    let animate
+    let fadeIn
+    const [articleDeats, updateArticle] = useState(null)
+    const [canUpdate, updateCanUpdate] = useState(true)
+    const [fadeContain, updateFade] = useState(null)
+    const [fade, triggerFade] = useState(false)
+    
+    useEffect(()=>{
+        if(fadeIn != null){
+            updateFade(fadeIn)
+        }
+    }, [fadeIn])
+    useEffect(()=>{
+        if(fadeContain != null){
+            gsap.set(fadeContain,{
+                opacity: 0,
+                y: 40,
+            })
+            const scrollPos = fadeContain.offsetTop
+            window.addEventListener("scroll", (e)=>{
+                if(fadeContain.getBoundingClientRect().top <= window.innerHeight * .4){
+                    triggerFade(true)
+                }
+            }, {passive: true})
+        }
+    }, [fadeContain])
+    useEffect(()=>{
+        if(fade){
+            gsap.to(fadeContain, 1,{
+                opacity: 1,
+                y: 0,
+                ease: Power2.easeOut
+            })
+        }
+    }, [fade])
+    const handleUpdate = (article) =>{
+        updateArticle(article)
     }
-    return(<div className = "collectionArticleContainer">
+    return(<div ref = {div=>fadeIn=div} className = "collectionArticleContainer">
         <div ref = {div=>animate=div} className = "imageContainer">
-            <Magnifier 
-            mgShape = "circle"
-            mgBorderWidth = {0}
-            mgWidth = {150}
-            mgHeight = {150}
-            zoomFactor = "1.5"
-            src = {props.item.image.publicURL} alt=""/>
-            <span className = "invisible">
-            {articleDeats === null ? "" : 
-            <ArticleDeats updateArticle = {(article) => handleUpdate(article)} item = {articleDeats} />
-            }
-            </span>
+           <Switcher 
+           item = {props.item}
+           updateArticle = {(newArt)=>updateArticle(newArt)}
+           articleDeats = {articleDeats}
+           />
         </div>
         <div className = "articleContainer">
+           <div className = "flexBox">
             {props.item.clothing_pieces.map((item)=>
                 <div className = "articleBox"><Article 
                                 active = {articleDeats}
@@ -151,8 +229,11 @@ const CollectionArticle = props =>{
                                 updateArticle = {(article)=>handleUpdate(article)} 
                                 item = {item} /></div>
                                  )}
+            </div>
         </div>
     </div>)
 }
+
+
 
 export default CollectionArticle

@@ -1,9 +1,8 @@
 @import "global";
-
 .scrollBar{
     position: fixed;
     width: 5px;
-    right: 1.5vw;
+    right: calc(2.5vw - 2.5px);  //half padding  half scrollbarwidth
     background-color: black;
     top: 11vh;
     border-radius: 10px;

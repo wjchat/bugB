@@ -53,7 +53,7 @@ $imgSize: 3vw;
         @include animate;
         display: flex;
         justify-content: flex-end;
-          padding-right: 12%;
+        padding-right: 12%;
           img {
             object-fit: cover;
             height: $imgSize;  
@@ -78,6 +78,7 @@ $imgSize: 3vw;
           display: flex;
           width: fit-content;
           padding: $largeFont / 6;
+          padding-left: 0;
           .circle{
               margin-top: $largeFont * .5;
               margin-bottom: auto;
