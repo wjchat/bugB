@@ -69,10 +69,10 @@ const Home = () => {
 
           <div className="rightContain">
             <div className="text">
-              <div ref={div => (one = div)}>Vintage Styles for</div>
-              <div ref={div => (two = div)}>the</div>
-              <div ref={div => (three = div)}>Modern</div>
-              <div ref={div => (four = div)}>World</div>
+              <div ref={div => (one = div)}>Vintage Styles</div>
+              <div ref={div => (two = div)}>for the</div>
+              <div ref={div => (three = div)}>Modern World</div>
+              <div ref={div => (four = div)}></div>
             </div>
           </div>
         </div>

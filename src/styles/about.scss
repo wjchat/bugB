@@ -7,4 +7,14 @@
         width: 100%;
         text-align: center;
     }
+    &>h3{
+        text-align: center;
+        margin-top: 2vw;
+        font-family: $serrif;
+        font-weight: 100;
+        text-align: center;
+        line-height: 120%;
+        font-size: $largeFont / 4;
+        font-style: italic;
+    }
 }

@@ -194,7 +194,7 @@ const CollectionArticle = props =>{
             })
             const scrollPos = fadeContain.offsetTop
             window.addEventListener("scroll", (e)=>{
-                if(fadeContain.getBoundingClientRect().top <= window.innerHeight * .4){
+                if(fadeContain.getBoundingClientRect().top <= window.innerHeight * .66){
                     triggerFade(true)
                 }
             }, {passive: true})

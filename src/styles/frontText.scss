@@ -34,10 +34,10 @@ margin-top: 10%;
     }
   }
   h2 {
-    @include smallSans;
-    font-size: $smallFont * 1.6;
+    @include largeSer;
+    font-size: $largeFont / 2;
     grid-area: second;
-    line-height: 116%;
+    line-height: 120%;
     text-align: left;
     padding: 0 0%;
     z-index: 5;
@@ -46,8 +46,12 @@ margin-top: 10%;
   }
   .box1 {
     grid-area: box1;
-    width: 100%;
-    padding-left: 10%;
+    width: 90%;
+    margin-left: 10%;
+    display: block;
+    position: relative;
+    overflow: hidden;
+    
   }
   .imgContainer {
     display: flex;
@@ -55,10 +59,11 @@ margin-top: 10%;
     opacity: 1;
 //    transform: translateY(10px);
     margin-top: -1vw;
-    .image {
+    img {
       width: 100%;
       object-fit: cover;
-      max-height: 100%;
+      height: 100%;
+    transform: scale(1.3);
     }
   }
 }

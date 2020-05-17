@@ -15,6 +15,7 @@ import { TransitionPortal } from "gatsby-plugin-transition-link";
 import Logo from '../images/logo.svg'
 import ScrollBar from './Scrollbar.jsx'
 import ScrollPops from "./ScrollPops.jsx"
+import SmoothScroll from './smoothScroll.jsx'
 
 
 

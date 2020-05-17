@@ -12,6 +12,7 @@ const AboutPage = props =>{
        <SEO title = "about" />
         <div className = "aboutContainer">
             <h1>About Us</h1>
+            <h3>scroll down</h3>
             <Values />
             <Insta />
         </div>

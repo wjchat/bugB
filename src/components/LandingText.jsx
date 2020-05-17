@@ -54,7 +54,7 @@ const Text = () => {
   }
   `)
   const landingText = data.strapiFrontPage.LandingText;
-  const imgscr = data.strapiFrontPage.secondPhoto.publicURL;
+  const imgsrc = data.strapiFrontPage.secondPhoto.publicURL;
   let ref
   let one
   let two
@@ -92,16 +92,18 @@ const Text = () => {
   return (
     <div ref={div => (ref = div)} className="frontText">
       <h1 ref={div => (one = div)}>
-        <h1>Sustainable,</h1>
-        <h1>Quality,</h1>
+        <h1>Sustainable.</h1>
+        <h1>Quality.</h1>
         <h1> Unique.</h1>
       </h1>
       <h2>
         {landingText}
       </h2>
-      <ParrallaxBox duration={0.1} speed={0.4} className="box1 imgContainer">
-        <ImageFlip imgsrc = {imgscr} className="image" />
-      </ParrallaxBox>
+      <div className="box1 imgContainer">
+          <ParrallaxBox duration={0.1} speed={0.2} >
+            <img src={imgsrc} alt="bugbVintage"/>
+          </ParrallaxBox>
+        </div>
     </div>
   )
 }

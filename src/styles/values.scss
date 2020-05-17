@@ -7,7 +7,7 @@
     padding-top: 0vh;
     
     &>.first{
-        width: 50%;
+        width: 35.5%;
           position: -webkit-sticky; /* Safari */
           position: sticky;
           top: 1px;
@@ -24,22 +24,29 @@
             flex-direction: column;
               li{
                 list-style: none;
-                @include headSer;
+                @include largeSer;
+                  font-weight: 100;
                 padding: .5vw 0;
-                font-size: 7vw;
+                font-size: 8vw;
             }      
         }
     }
     &>.second{
+        margin-left: auto;
+        margin: auto;
         padding-left: 5vw;
-        width: 50%;
+        width: 42%;
         height: 100%;
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
         padding-top: 90vh;
         p{
-            @include largeSans;
+            @include largeSer;
+            font-size: $largeFont / 4;
+            line-height: 200%;
+            padding-bottom: 50vh;
+            font-weight: 100;
         }
     }
 }

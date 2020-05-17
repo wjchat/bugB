@@ -70,25 +70,18 @@ const Values = props => {
     return(<div ref = {div=>animate=div} className = "values">
        <div className = "first">
             <ul>
-                <li>Sustainable</li>
-                <li>Quality</li>
-                <li>Unique</li>
+                <li>Sustainable.</li>
+                <li>Quality.</li>
+                <li>Unique.</li>
             </ul>
        </div>
         <div className = "second">
             <p>
-            BugB Vintage was founded on these three principles 
-            BugB Vintage was founded on these three principles 
-            BugB Vintage was founded on these three principles 
-            BugB Vintage was founded on these three principles 
-            BugB Vintage was founded on these three principles 
-            BugB Vintage was founded on these three principles     
-            BugB Vintage was founded on these three principles 
-            BugB Vintage was founded on these three principles 
-            BugB Vintage was founded on these three principles 
-            BugB Vintage was founded on these three principles 
-            BugB Vintage was founded on these three principles 
-            BugB Vintage was founded on these three principles 
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vehicula est et porttitor semper. Cras congue commodo mollis. Sed vehicula, diam in fringilla placerat, mauris tellus blandit turpis, sed dapibus magna ligula id ipsum. Sed feugiat laoreet leo, in convallis neque porta gravida. In ullamcorper posuere fringilla. Suspendisse eu erat magna. Donec pharetra vehicula risus, eget faucibus massa euismod sit amet. In augue ante, finibus eget posuere a, sodales sed ipsum. Fusce lobortis vitae elit non tempus. Suspendisse potenti. Mauris sed cursus lorem, aliquam dignissim lectus. Donec mi tortor, finibus sit amet risus a, accumsan rhoncus odio.
+<br/><br/>
+
+Aliquam in urna nec sapien consectetur ornare. In eget lorem risus. Proin id placerat erat. Quisque sodales feugiat cursus. Morbi ex justo, lacinia in dapibus sit amet, hendrerit id neque. Morbi luctus mattis justo in maximus. Donec tincidunt urna sed quam vulputate porttitor. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Duis purus magna, tincidunt quis consequat at, cursus id nisi. Curabitur velit ligula, tristique quis leo a, aliquam viverra odio.
             </p>
         </div>
     </div>)

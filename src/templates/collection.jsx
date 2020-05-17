@@ -54,6 +54,7 @@ const CollectionTemplate = ({ data }) => {
       <SEO title={collectionName} />
       <div className="collectionTemplateContainer">
         <h1>{collectionName}</h1>
+        <h3>Put the description of the collection here. This collection was a result of blah and together with blah we created a blah. Scroll down to see the collection.</h3>
         <div className="flexbox">
           {collectionImages.map(item => (
             <div className="flexItem">

@@ -7,6 +7,18 @@
         width: 100%;
         text-align: center;
     }
+    &>h3{
+        width: 33%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 2vw;
+        font-family: $serrif;
+        font-weight: 100;
+        text-align: center;
+        line-height: 120%;
+        font-size: $largeFont / 4;
+        font-style: italic;
+    }
     .flexbox{
         width: 100%;
         margin-top: 40vh;

@@ -55,7 +55,7 @@ const Post = props =>{
                       <div className = "overlay">
                           <h2>{caption}</h2>
                           <h2>{
-                                  `${date.toLocaleDateString('default', {month: 'long'})} ${date.getDay()}, ${date.getFullYear()} `
+                                  `${date.toLocaleDateString('default', {month: 'long'})} ${date.getDate()}, ${date.getFullYear()} `
                               }
                                  
                                   </h2>
@@ -87,7 +87,10 @@ const Insta = props =>{
         console.log('ok')
     }, [])
     return(<div className = "instaFlex">
-       <h1>Connect with our Instagram</h1>
+       <div className = "title">
+           <h1>Connect with us on Instagram</h1>
+           <h2><a href="https://www.instagram.com/bugbvintage/" target = "_blank">@bugbvintage</a></h2>
+       </div>
         {items.map((item)=>
                 <Post 
                  image = {item.node.localFile.publicURL}

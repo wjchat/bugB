@@ -6,6 +6,10 @@ $medFont: 3vw;
 $smallFont: 1.3vw;
 $backgroundColor: #fbf7f5; 
 
+html{
+    scroll-behavior: smooth;
+}
+
 @mixin largeSer {
     font-family: $serrif;
     font-size: $largeFont;
