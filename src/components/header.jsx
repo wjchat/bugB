@@ -155,6 +155,7 @@ const Header = (props) => {
     let lastY = window.scrollY
     let tween = TweenLite.to(one, 1, {
       opacity: 1,
+        delay: 1,
 //      x: 0,
     })
     let array = [two, three, four]
@@ -166,7 +167,7 @@ const Header = (props) => {
         y: 0,
         rotate: 0
       },
-      0.2
+      0.2, "+=1"
     )
     let tl2 = new TimelineMax({ paused: true })
     let dur1 = 0.3

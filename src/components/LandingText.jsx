@@ -51,6 +51,11 @@ const Text = () => {
               publicURL
             }
         }
+    strapiAboutPage{
+    value1
+    value2
+    value3
+}
   }
   `)
   const landingText = data.strapiFrontPage.LandingText;
@@ -92,9 +97,9 @@ const Text = () => {
   return (
     <div ref={div => (ref = div)} className="frontText">
       <h1 ref={div => (one = div)}>
-        <h1>Sustainable.</h1>
-        <h1>Quality.</h1>
-        <h1> Unique.</h1>
+        <h1>{data.strapiAboutPage.value1}.</h1>
+        <h1>{data.strapiAboutPage.value2}.</h1>
+        <h1>{data.strapiAboutPage.value3}.</h1>
       </h1>
       <h2>
         {landingText}

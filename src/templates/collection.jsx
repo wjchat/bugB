@@ -13,6 +13,7 @@ export const query = graphql`
       strapiId
       name
       id
+    description
     }
     allStrapiClothingImages {
       edges {
@@ -43,6 +44,7 @@ const CollectionTemplate = ({ data }) => {
   const collectionID = data.strapiCollections.strapiId
   const collectionName = data.strapiCollections.name
   const allImages = data.allStrapiClothingImages.edges
+  const description = data.strapiCollections.description
   let collectionImages = []
   for (let each of allImages) {
     if (each.node.collection.id === collectionID) {
@@ -54,7 +56,7 @@ const CollectionTemplate = ({ data }) => {
       <SEO title={collectionName} />
       <div className="collectionTemplateContainer">
         <h1>{collectionName}</h1>
-        <h3>Put the description of the collection here. This collection was a result of blah and together with blah we created a blah. Scroll down to see the collection.</h3>
+        <h3>{description}</h3>
         <div className="flexbox">
           {collectionImages.map(item => (
             <div className="flexItem">

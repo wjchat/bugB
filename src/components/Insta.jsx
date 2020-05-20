@@ -50,7 +50,7 @@ const Post = props =>{
                        onMouseEnter = {()=>updateHover(true)}
                        onMouseLeave = {()=>updateHover(false)}
                        ref = {div=>animate=div} className = "post">
-                        <a href="https://www.instagram.com/bugbvintage/" target = "_blank">
+                        <a href={props.link} target = "_blank">
                       <img src={props.image} alt="bugb vintage"/>
                       <div className = "overlay">
                           <h2>{caption}</h2>
@@ -79,9 +79,13 @@ const Insta = props =>{
       }
     }
   }
+  strapiLargeNav {
+    instagramLink
+  }
 }
 `)
     const items = data.allInstaNode.edges
+    const link = data.strapiLargeNav.instagramLink
     useEffect(()=>{
         console.log(items)
         console.log('ok')
@@ -89,10 +93,11 @@ const Insta = props =>{
     return(<div className = "instaFlex">
        <div className = "title">
            <h1>Connect with us on Instagram</h1>
-           <h2><a href="https://www.instagram.com/bugbvintage/" target = "_blank">@bugbvintage</a></h2>
+           <h2><a href={link} target = "_blank">@bugbvintage</a></h2>
        </div>
         {items.map((item)=>
                 <Post 
+                link = {link}
                  image = {item.node.localFile.publicURL}
                  caption = {item.node.caption}
                  timestamp = {item.node.timestamp}

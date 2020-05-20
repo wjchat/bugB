@@ -41,7 +41,7 @@
         flex-direction: column;
         justify-content: flex-start;
         padding-top: 90vh;
-        p{
+        p.container{
             @include largeSer;
             font-size: $largeFont / 4;
             line-height: 200%;

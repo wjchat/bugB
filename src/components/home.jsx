@@ -58,7 +58,8 @@ const Home = () => {
         x: 0,
         ease: "power1.out",
       },
-      0.15
+      0.15,
+        `+=1`,
     )
   })
   return (

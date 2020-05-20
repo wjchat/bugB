@@ -52,6 +52,7 @@ module.exports = {
           singleTypes:[
               "front-page",
               "large-nav",
+              "about-page",
           ],
         queryLimit: 1000,
       },
