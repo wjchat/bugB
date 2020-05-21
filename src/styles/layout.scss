@@ -29,6 +29,9 @@ body::-webkit-scrollbar {
     img {
       max-height: 100%;
       max-width: 100%;
+        @include tablet{
+            transform: scale(3);
+        }
     }
     .pop {
       position: absolute;

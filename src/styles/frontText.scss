@@ -26,6 +26,9 @@ margin-top: 10%;
       position: relative;
     &>h1 {
     @include largeSer;
+        @include tablet{
+            font-size: $tabletLargeFont;
+        }
       opacity: 0;
       margin-left: 1vw;
         height: fit-content;
@@ -36,6 +39,9 @@ margin-top: 10%;
   h2 {
     @include largeSer;
     font-size: $largeFont / 2;
+      @include tablet{
+          font-size: $tabletMedFont;
+      }
     grid-area: second;
     line-height: 120%;
     text-align: left;

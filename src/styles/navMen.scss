@@ -8,6 +8,9 @@ $thisHeight: 2vw;
     box-sizing: content-box;
     cursor: pointer;
     transform: translateX($thisHeight * .3); //to offset padding
+    @include tablet{
+        transform: scale(2);
+    }
     & > .container{
         height: 100%;
         width: 100%;
@@ -22,6 +25,9 @@ $thisHeight: 2vw;
             border-radius: 3px;
             width: 0;
             opacity: 0;
+            @include tablet{
+                border-radius: 1px;
+            }
         }
     }
 }

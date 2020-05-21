@@ -1,7 +1,7 @@
 @import "global";
 $background: white;
 $foreground: black;
-$imgSize: 3vw;
+$imgSize: 2.2vw;
 
 @mixin animate{
     opacity: 0;
@@ -44,23 +44,41 @@ $imgSize: 3vw;
       "nav back img"
       "nav . img"
       "nav social img";
+      @include tablet{
+          grid-template-rows: 1fr 1fr 1fr;
+          grid-template-columns: 1fr 2fr 1fr;
+          grid-template-areas: 
+              ". . ."
+              "social nav back"
+              ". . .";
+      }
     .back {
       grid-area: back;
       display: flex;
       flex-direction: column;
       justify-content: center;
+        @include tablet{
+            justify-content: flex-start;
+        }
       div {
         @include animate;
         display: flex;
         justify-content: flex-end;
         padding-right: 12%;
+          @include tablet{
+              justify-content: center;
+              padding-top: $tabletLargeFont * .4;
+          }
           img {
             object-fit: cover;
             height: $imgSize;  
-              transform: scale(-1); 
               cursor: pointer;
               box-sizing: content-box;
               padding: $imgSize / 6;
+            @include tablet{
+                width: $imgSize * 2;
+                height: $imgSize * 2;
+            }
           }
       }
     }
@@ -70,6 +88,11 @@ $imgSize: 3vw;
       flex-direction: column;
       justify-content: space-around;
       padding: 9% 9%;
+        @include tablet{
+            justify-content: space-between;
+            width: 100%;
+            padding: 0;
+        }
       h1 {
         @include largeSer;
           @include animate;
@@ -79,6 +102,12 @@ $imgSize: 3vw;
           width: fit-content;
           padding: $largeFont / 6;
           padding-left: 0;
+          @include tablet{
+              width: 100%;
+              text-align: center;
+              justify-content: center;
+                font-size: $tabletLargeFont;
+          }
           .circle{
               margin-top: $largeFont * .5;
               margin-bottom: auto;
@@ -109,6 +138,13 @@ $imgSize: 3vw;
       div {
         display: flex;
         justify-content: space-around;
+        @include tablet{
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+            margin: auto;
+            padding: $tabletLargeFont * .4 0;
+        }
           a{
               @include animate;
           }
@@ -119,12 +155,19 @@ $imgSize: 3vw;
             box-sizing: content-box;
           padding: $imgSize / 8;
             cursor: pointer;
+            @include tablet{
+                width: $imgSize * 2;
+                height: $imgSize * 2;
+            }
         }
       }
     }
     .img {
       grid-area: img;
       @include animate;
+        @include tablet{
+            display: none;
+        }
     }
   }
 }

@@ -6,6 +6,9 @@
         @include largeSer;
         width: 100%;
         text-align: center;
+        @include tablet{
+            font-size: $tabletLargeFont;
+        }
     }
     &>h3{
         width: 33%;
@@ -18,6 +21,10 @@
         line-height: 120%;
         font-size: $largeFont / 4;
         font-style: italic;
+        @include tablet{
+            font-size: $tabletSmallFont;
+            width: 66%;
+        }
     }
     .flexbox{
         width: 100%;
@@ -39,7 +46,10 @@
         width: 40%;
         margin-right: 5%;
         position: relative;
-
+        @include tablet{
+            width: 60%;
+            margin-right: 0;
+        }
         .invisible{
             opacity: 0;
         }
@@ -58,11 +68,19 @@
                     object-fit: cover;
                     height: 15vw;
                     width: 15vw;
+                    @include tablet{
+                        height: 25vw;
+                        width: 25vw;
+                    }
                 }
                 & > .small{
                     height: 3vw;
                     width: 3vw;
                     cursor: pointer;
+                    @include tablet{
+                        height: 5vw;
+                        width: 5vw;
+                    }
                     img{
                         height: 100%;
                         width: 100%
@@ -75,11 +93,17 @@
                 flex-direction: column;
                 justify-content: center;
                 height: 9vw;
+                @include tablet{
+                    height: 15vw;
+                }
                 h2{
                     @include largeSans;
                     width: 100%;
                     text-align: center;
                     height: fit-content;
+                    @include tablet{
+                        font-size: $tabletMedFont;
+                    }
                 }
             }
             .priceSize{
@@ -89,12 +113,18 @@
                 justify-content: flex-start;
                 padding: 2.2vw 2vw;
                 padding-top: 0;
+                @include tablet{
+                    padding-bottom: 5vw;
+                }
                 div{
                     display: flex;
                     flex-direction: row;
                     justify-content: space-around;
                     h3{
                         @include smallSans;
+                        @include tablet{
+                            font-size: $tabletSmallFont;
+                        }
                     }
                 }
             }
@@ -104,6 +134,9 @@
                 line-height: 130%;
                 height: 8vw;
                 text-align: center;
+                    @include tablet{
+                        font-size: $tabletSmallFont;
+                    }
             }
         }
     }
@@ -114,12 +147,21 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
+        @include tablet{
+            margin-left: 0;
+        }
         &>.flexBox{
             width: 90%;
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
             margin-left: auto;
+            @include tablet{
+                width: 25vw;
+                flex-direction: column;
+                margin: auto;
+                flex-wrap: nowrap;
+            }
         }
     }
     .articleBox{
@@ -139,6 +181,11 @@
                 margin-top: auto;
                 margin-left: auto;
                 margin-right: auto;
+                @include tablet{
+                    height: 25vw;
+                    width: 25vw;
+                    
+                }
                 img{
                     object-fit: cover;
                     height: 100%;
@@ -173,6 +220,10 @@
                     padding-top: 5px;
                     @include smallSans;
                     text-align: center;
+                    @include tablet{
+                        width: 25vw;
+                        font-size: $tabletSmallFont;
+                    }
                 }
             }
             .soldOut{
@@ -189,11 +240,18 @@
                 top: 0;
                 margin-left: auto;
                 margin-right: auto;
+                @include tablet{
+                    height: 25vw;
+                    width: 25vw;
+                }
                 h3{
                     width: 100%;
                     text-align: center;
                     @include largeSans;
                     color: white;
+                    @include tablet{
+                        font-size: $tabletMedFont;
+                    }
                 }
             }
         }

@@ -21,6 +21,10 @@
             margin-left: auto;
             margin-right: auto;
             transform: scale(.5);
+            @include tablet{
+                font-size: $tabletLargeFont;
+                margin-bottom: 5vh;
+            }
             a{
                 color: #0000EE;
             }
@@ -32,6 +36,10 @@
         height: 25vw;
         margin: 3.75vw 0;
         overflow: hidden;
+        @include tablet{
+            height: 41.25vw;
+            width: 41.25vw;
+        }
         a{
             height: 100%;
             width: 100%;
@@ -51,6 +59,9 @@
             display: flex;
             justify-content: center;
             flex-direction: column;
+            @include tablet{
+                display: none;
+            }
             h2{
                 @include smallSans;
                 color: white;

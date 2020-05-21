@@ -13,6 +13,14 @@
         "collection feat"
         "collection featA"
         "collection featA";
+    @include tablet{
+        grid-template-rows: .3fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: 
+            "txt txt"
+            "collection collection"
+            "feat featA"
+    }
     & > div{
         overflow: hidden;
         position: relative;
@@ -25,6 +33,11 @@
         h1{
             font-weight: 100; 
             @include largeSer;
+            @include tablet{
+                font-size: $tabletLargeFont;
+                width: 100%;
+                text-align: center;
+            }
         }
     }
     div{
@@ -35,12 +48,41 @@
     }
     .collection{
         grid-area: collection;
+        &.desktop{
+            @include tablet{
+                display: none;
+            }
+        }
+        &.mobile{
+            display: none;
+            @include tablet{
+                display: block;
+            }
+        }
     }
     .feat1{
         grid-area: feat;
+        @include tablet{
+            display: none;
+        }
+        &.mobile{
+            display: none;
+            @include tablet{
+                display: flex;
+            }
+        }
     }    
     .feat2{
         grid-area: featA;
+        @include tablet{
+            display: none;
+        }
+        &.mobile{
+            display: none;
+            @include tablet{
+                display: flex;
+            }
+        }
     }
     .image{
             object-fit: cover;
@@ -48,6 +90,11 @@
             min-height: 100%;
             object-position: center;
             overflow: visible;
+            transform: scale(1.3);
+        @include tablet{
+            max-width: 100%;
+            height: auto;
+        }
     }
     .overlay{
         position: absolute;
@@ -64,12 +111,26 @@
         cursor: pointer;
         filter: blur(5px);
         opacity: 0;
+        &.mobile{
+            display: none;
+            @include tablet{
+                display: flex;
+                opacity: 1;
+                filter: blur(0px);
+            }
+        }
         h2{
-            @include largeSans
+            @include largeSans;
+            @include tablet{
+                font-size: $tabletMedFont;
+            }
         }
         h3{
             margin-top: 3%;
-            @include smallSans
+            @include smallSans;
+            @include tablet{
+                font-size: $tabletSmallFont;
+            }
         }
     }
 }

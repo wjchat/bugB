@@ -11,6 +11,9 @@ $circleSize: 0.4vw;
   justify-content: space-between;
   position: fixed;
     pointer-events: none;
+    @include tablet{
+        padding: 4vw 5vw;
+    }
   .one {
     transform: scale(1.1);
     }
@@ -24,6 +27,10 @@ $circleSize: 0.4vw;
       display: flex;
       flex-direction: column;
       justify-content: center;
+      @include tablet{
+          height: 10vw;
+          width: 10vw;
+      }
     .pop {
       position: absolute;
       height: 0.4vw;
@@ -31,6 +38,9 @@ $circleSize: 0.4vw;
       border-radius: 50px;
       background-color: black;
       opacity: 0;
+        @include tablet{
+            display: none;
+        }
     }
     .pop1 {
       left: 0;
@@ -80,6 +90,9 @@ $circleSize: 0.4vw;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+      @include tablet{
+          margin-top: 4vw;
+      }
     .navMenu{
         display: none;        
     }
@@ -87,7 +100,7 @@ $circleSize: 0.4vw;
       display: flex;
       flex-direction: row;
       justify-content: space-between;
-      width: 24vw;
+//      width: 24vw;
       & > div {
         opacity: 0;
         transform: translateY(30%) rotate(1deg);
@@ -98,6 +111,7 @@ $circleSize: 0.4vw;
 .navItem {
     pointer-events: inherit;
   display: flex;
+    
   .circle {
     height: $circleSize;
     width: $circleSize;
@@ -112,7 +126,12 @@ $circleSize: 0.4vw;
     position: relative;
     cursor: pointer;
     box-sizing: border-box;
+    padding-right: 1vw;
     @include smallSans;
+    @include tablet{
+            font-size: 2vw;
+            padding-right: 2vw;
+      }
   }
     .circle2{
         opacity: 1;

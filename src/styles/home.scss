@@ -45,6 +45,10 @@ $startX: translateX(-5%);
             @include largeSer;
             text-align: right;
             z-index: 3;
+            @include tablet{
+                font-size: $tabletLargeFont;
+                line-height: 150%;
+            }
             div{
                 opacity: 0;
                 transform: $startX;

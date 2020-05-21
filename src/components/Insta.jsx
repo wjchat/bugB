@@ -73,6 +73,7 @@ const Insta = props =>{
         localFile {
           publicURL
         }
+        original
         caption
         timestamp
         likes
@@ -98,7 +99,7 @@ const Insta = props =>{
         {items.map((item)=>
                 <Post 
                 link = {link}
-                 image = {item.node.localFile.publicURL}
+                 image = {item.node.original}
                  caption = {item.node.caption}
                  timestamp = {item.node.timestamp}
                  />

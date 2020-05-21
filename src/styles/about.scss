@@ -6,6 +6,9 @@
         @include largeSer;
         width: 100%;
         text-align: center;
+        @include tablet{
+            font-size: $tabletLargeFont;
+        }
     }
     &>h3{
         text-align: center;
@@ -16,5 +19,8 @@
         line-height: 120%;
         font-size: $largeFont / 4;
         font-style: italic;
+        @include tablet{
+            font-size: $tabletSmallFont;
+        }
     }
 }

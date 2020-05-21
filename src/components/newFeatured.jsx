@@ -7,7 +7,7 @@ import TransitionLink from 'gatsby-plugin-transition-link'
 
 
 const Overlay = props => {
-  const [mouseIn, toggleMouse] = useState(false)
+  const [mouseIn, toggleMouse] = useState(null)
   let animate
   let duration = 0.2
 
@@ -145,7 +145,7 @@ const NewFeaturedContainer = (props) => {
           New & Featured
         </h1>
       </div>
-      <div className="collection">
+      <div className="collection desktop">
        <TransitionLink 
             exit = {{
                             trigger: () => handleClick(),
@@ -163,6 +163,28 @@ const NewFeaturedContainer = (props) => {
               className="image"
             />
         </TransitionLink>
+      </div>      
+      <div className="collection mobile">
+       <TransitionLink 
+            exit = {{
+                            trigger: () => handleClick(),
+                            length: 4,
+                      }}
+            entry = {{
+                          delay: .5,
+                      }}
+           to = {`/collection/${collection.strapiId}`}>
+            <div className = "overlay mobile">
+                <h2>{collection.name}</h2>
+                <h3>Collection</h3>
+            </div>
+            <Parrallax
+              speed={2}
+              src = {collection.cover.publicURL}
+              alt="ok"
+              className="image"
+            />
+        </TransitionLink>
       </div>
       <div className="feat1">
        <a href={featured1.link} target = "__blank">
@@ -174,10 +196,33 @@ const NewFeaturedContainer = (props) => {
           className="image"
         />
         </a>
+      </div>      
+      <div className="feat1 mobile">
+       <a href={featured1.link} target = "__blank">
+            <div className = "overlay mobile">
+                <h2>{featured1.Name}</h2>
+                <h3>${featured1.Price}</h3>
+            </div>
+        <Parrallax
+          speed={1}
+          src={featured1.photo.publicURL}
+          alt="ok"
+          className="image"
+        />
+        </a>
       </div>
       <div className="feat2">
        <a href={featured2.link} target = "__blank">
         <Overlay name={featured2.Name} price={`$${featured2.Price}`} />
+        <Parrallax speed={1} src={featured2.photo.publicURL} alt="ok" className="image" />
+        </a>
+      </div>      
+      <div className="feat2 mobile">
+       <a href={featured2.link} target = "__blank">
+            <div className = "overlay mobile">
+                <h2>{featured2.Name}</h2>
+                <h3>${featured2.Price}</h3>
+            </div>
         <Parrallax speed={1} src={featured2.photo.publicURL} alt="ok" className="image" />
         </a>
       </div>

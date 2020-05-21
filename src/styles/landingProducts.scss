@@ -7,6 +7,10 @@
     width: 100%;
     text-align: center;
     margin-bottom: 20vh;
+      @include tablet{
+          font-size: $tabletLargeFont;
+          margin-bottom: 10vh;
+      }
   }
   & > .flexbox {
     width: 100%;
@@ -18,15 +22,25 @@
         display: flex;
         justify-content: center;
         margin-bottom: 20vh;
+        @include tablet{
+            width: 50%;
+            margin-bottom: 10vh;
+        }
       & > div {
         position: relative;
         width: 70%;
           text-align: center;
+          @include tablet{
+              width: 90%;
+          }
           &>h1{
               @include largeSans;
               font-size: $smallFont;
               font-weight: 500;
               padding-top: 1vw;
+              @include tablet{
+                  font-size: $tabletSmallFont;
+              }
           }          
           &>h2{
               @include smallSans;
@@ -34,6 +48,9 @@
               display: flex;
               flex-direction: column;
               justify-content: space-between;
+              @include tablet{
+                  font-size: $tabletSmallFont;
+              }
               span{
                   padding-bottom: 1vw;
               }
