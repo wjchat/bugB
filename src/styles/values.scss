@@ -48,14 +48,14 @@
         p.container{
             @include largeSer;
             font-size: $largeFont / 4;
-            line-height: 200%;
+            line-height: 150%;
             padding-bottom: 50vh;
             font-weight: 100;
             @include tablet{
                 font-size: $tabletSmallFont;
             }
             @include mobile{
-                font-size: $tabletSmallFont * 1.5;
+                font-size: $tabletSmallFont * 2;
             }
         }
     }

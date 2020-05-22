@@ -15,6 +15,9 @@ $imgSize: 2.2vw;
   z-index: 200;
   color: $foreground;
   display: block;
+    @include mobile{
+        height: 120vh;
+    }
   .background {
     position: absolute;
     height: 100%;
@@ -53,7 +56,7 @@ $imgSize: 2.2vw;
               ". . .";
       }
       @include mobile{
-          grid-template-rows: 2fr 1fr 1fr 1fr 1fr 2fr;
+          grid-template-rows: 2fr 1fr 1fr 1fr 1fr 3.5fr;
           grid-template-columns: 1fr 1fr;
           grid-template-areas: 
               ". ."

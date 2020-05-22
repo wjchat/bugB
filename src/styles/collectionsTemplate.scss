@@ -29,7 +29,7 @@
             width: 66%;
         }
         @include mobile{
-            font-size: $tabletSmallFont * 1.5;
+            font-size: $tabletSmallFont * 2;
         }
     }
     .flexbox{
@@ -147,7 +147,7 @@
                             font-size: $tabletSmallFont;
                         }
                         @include mobile{
-                            font-size: $tabletSmallFont * 1.5;
+                            font-size: $tabletSmallFont * 2;
                         }
                     }
                 }
@@ -162,7 +162,8 @@
                         font-size: $tabletSmallFont;
                     }
                 @include mobile{
-                    font-size: $tabletSmallFont * 1.5;
+                    font-size: $tabletSmallFont * 2;
+                    height: 30vw;
                 }
             }
         }

@@ -4,14 +4,14 @@ import externalLink from '../images/externalLink.svg';
 import letterX from '../images/letter-x.svg';
 import {gsap, Power2} from "gsap";
 import ReactMarkdown from "react-markdown" 
-import Magnifier from "react-magnifier";
+import Img from "gatsby-image"
 
 const ArticleDeats = props =>{
     const item = props.item
     return(<div className = "deatsContainer" >
         <div className = "deatsImageContainer">
            <img onClick = {()=>props.updateArticle(null)} className = "small" src={letterX} alt=""/>
-            <img src={item.image.publicURL} alt=""  />
+            <img src={item.image.publicURL}  alt=""  />
             <a className = "small"  target = "_blank" href={item.link}>
                <img src={externalLink} alt=""/>
            </a>
@@ -101,12 +101,7 @@ const Article = props =>{
 const Switcher = props =>{
     let anmt
     const [slot1, updateSlot1] = useState(null)
-    const [slot2, updateSlot2] = useState(null)
-    useEffect(()=>{
-        if(slot2===null && props.item != null){
-            updateSlot2(<img  className = "image" src = {props.item.image.publicURL} alt=""/>)
-        }
-    }, [slot2, props.item])
+    const [slot2, updateSlot2] = useState(<Img  className = "image" fluid = {props.item.image.childImageSharp.fluid} alt=""/>)
     const [animate, updateAnimate] = useState(null)
     useEffect(()=>{
         if(anmt != null){
@@ -121,7 +116,7 @@ const Switcher = props =>{
                //get net frame ting
                 let nextFrame
                 if(props.articleDeats ===null){
-                    nextFrame = <img  className = "image" src = {props.item.image.publicURL} alt=""/>
+                    nextFrame = <Img  className = "image" fluid = {props.item.image.childImageSharp.fluid} alt=""/>
                 } else{
                     nextFrame = <ArticleDeats updateArticle = {(article) => props.updateArticle(article)} item = {props.articleDeats} />
                 }
@@ -147,7 +142,7 @@ const Switcher = props =>{
             }else if(slot2 === null){
                 let nextFrame
                 if(props.articleDeats ===null){
-                    nextFrame = <img  className = "image" src = {props.item.image.publicURL} alt=""/>
+                    nextFrame = <Img  className = "image" fluid = {props.item.image.childImageSharp.fluid} alt=""/>
                 } else{
                     nextFrame = <ArticleDeats updateArticle = {(article) => props.updateArticle(article)} item = {props.articleDeats} />
                 }
@@ -172,7 +167,7 @@ const Switcher = props =>{
                 tl.call(()=>updateSlot1(null))
             }
         }
-}, [props.articleDeats, animate])
+}, [props.articleDeats, animate, props.item])
     return(<div ref = {div=>anmt=div} className = "switcherContain">
         <div className = "slot1">{slot1}</div>
         <div className = "slot2">{slot2}</div>

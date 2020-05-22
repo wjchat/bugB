@@ -13,13 +13,20 @@ export const query = graphql`
       strapiId
       name
       id
-    description
+      description
     }
     allStrapiClothingImages {
       edges {
         node {
           collection {
             id
+          }
+          image {
+            childImageSharp {
+              fluid {
+                src
+              }
+            }
           }
           clothing_pieces {
             soldOut
@@ -29,11 +36,8 @@ export const query = graphql`
             price
             size
             image {
-              publicURL
+              publicURL 
             }
-          }
-          image {
-            publicURL
           }
         }
       }
