@@ -101,7 +101,12 @@ const Article = props =>{
 const Switcher = props =>{
     let anmt
     const [slot1, updateSlot1] = useState(null)
-    const [slot2, updateSlot2] = useState(<img  className = "image" src = {props.item.image.publicURL} alt=""/>)
+    const [slot2, updateSlot2] = useState(null)
+    useEffect(()=>{
+        if(slot2===null && props.item != null){
+            updateSlot2(<img  className = "image" src = {props.item.image.publicURL} alt=""/>)
+        }
+    }, [slot2, props.item])
     const [animate, updateAnimate] = useState(null)
     useEffect(()=>{
         if(anmt != null){
