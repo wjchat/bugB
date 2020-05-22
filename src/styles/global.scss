@@ -23,7 +23,7 @@ html{
 }
 
 @mixin tablet {
-  @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) and (min-height: 560px) {
+  @media (max-width: #{$desktop-width - 1px}) and (min-height: 1000px), (max-width: 420px) {
     @content;
   }
 }

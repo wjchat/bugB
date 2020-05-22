@@ -11,7 +11,13 @@ const ArticleDeats = props =>{
     return(<div className = "deatsContainer" >
         <div className = "deatsImageContainer">
            <img onClick = {()=>props.updateArticle(null)} className = "small" src={letterX} alt=""/>
-            <img src={item.image.publicURL}  alt=""  />
+           <div className = "deatImage">
+              <div>
+                   <Img 
+                   fadeIn = {true}
+                   fluid={item.image.childImageSharp.fluid}  alt=""  />
+              </div>
+           </div>
             <a className = "small"  target = "_blank" href={item.link}>
                <img src={externalLink} alt=""/>
            </a>

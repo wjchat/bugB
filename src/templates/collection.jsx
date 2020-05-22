@@ -24,7 +24,7 @@ export const query = graphql`
           image {
             childImageSharp {
               fluid {
-                src
+                ...GatsbyImageSharpFluid_withWebp
               }
             }
           }
@@ -36,7 +36,13 @@ export const query = graphql`
             price
             size
             image {
-              publicURL 
+              publicURL
+              childImageSharp {
+                fluid{
+                aspectRatio
+                  ...GatsbyImageSharpFluid_withWebp
+                }
+              }
             }
           }
         }

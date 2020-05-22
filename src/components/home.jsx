@@ -1,17 +1,17 @@
 import React, { useEffect, useCallback } from "react"
 import "../styles/home.scss"
 
-
 import { TimelineMax, TweenMax } from "gsap"
 import { useStaticQuery, graphql } from "gatsby"
+import Img from "gatsby-image"
 
 const ImageMover = React.forwardRef((props, ref) => (
-  <img
-    ref={ref}
-    className={`${props.className} animateIn`}
-    src={props.src}
-    alt={props.alt}
-  />
+    <div ref={ref} className={`${props.className} animateIn`}>
+      <Img
+        fluid={props.src}
+        alt={props.alt}
+      />
+    </div>
 ))
 
 const Home = () => {
@@ -20,11 +20,16 @@ const Home = () => {
       strapiFrontPage {
         landingPhoto {
           publicURL
+          childImageSharp {
+            fluid {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
         }
       }
-      }
+    }
   `)
-  const src = data.strapiFrontPage.landingPhoto.publicURL
+  const src = data.strapiFrontPage.landingPhoto.childImageSharp.fluid
   let one
   let two
   let three
@@ -59,14 +64,19 @@ const Home = () => {
         ease: "power1.out",
       },
       0.15,
-        `+=1`,
+      `+=1`
     )
   })
   return (
     <div className="home">
       <div onMouseMove={onMove} className="title">
         <div className="mainContain">
-          <ImageMover ref={img1} src = {src} className="image" alt="fashion at the best" />
+          <ImageMover
+            ref={img1}
+            src={src}
+            className="image"
+            alt="fashion at the best"
+          />
 
           <div className="rightContain">
             <div className="text">
