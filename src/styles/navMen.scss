@@ -11,6 +11,10 @@ $thisHeight: 2vw;
     @include tablet{
         transform: scale(2);
     }
+    @include mobile{
+        transform: scale(3);
+        margin-right: 1.6vw;
+    }
     & > .container{
         height: 100%;
         width: 100%;

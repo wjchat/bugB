@@ -9,6 +9,9 @@
         @include tablet{
             font-size: $tabletLargeFont;
         }
+        @include mobile{
+            font-size: $tabletLargeFont * 1.5;
+        }
     }
     &>h3{
         text-align: center;
@@ -21,6 +24,9 @@
         font-style: italic;
         @include tablet{
             font-size: $tabletSmallFont;
+        }
+        @include mobile{
+            font-size: $tabletSmallFont * 1.5;
         }
     }
 }

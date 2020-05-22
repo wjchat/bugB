@@ -25,6 +25,9 @@
                 font-size: $tabletLargeFont;
                 margin-bottom: 5vh;
             }
+            @include mobile{
+                    font-size: $tabletLargeFont * 1.5;
+                }
             a{
                 color: #0000EE;
             }

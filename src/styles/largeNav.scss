@@ -52,6 +52,18 @@ $imgSize: 2.2vw;
               "social nav back"
               ". . .";
       }
+      @include mobile{
+          grid-template-rows: 2fr 1fr 1fr 1fr 1fr 2fr;
+          grid-template-columns: 1fr 1fr;
+          grid-template-areas: 
+              ". ."
+              "nav back"
+              "nav social"
+              "nav social"
+              "nav social"
+              ". . "
+            ;
+      }
     .back {
       grid-area: back;
       display: flex;
@@ -59,6 +71,10 @@ $imgSize: 2.2vw;
       justify-content: center;
         @include tablet{
             justify-content: flex-start;
+        }
+        @include mobile{
+            justify-content: flex-end;
+            flex-direction: row;
         }
       div {
         @include animate;
@@ -78,6 +94,10 @@ $imgSize: 2.2vw;
             @include tablet{
                 width: $imgSize * 2;
                 height: $imgSize * 2;
+            }
+            @include mobile{
+                width: $imgSize * 3;
+                height: $imgSize * 3;
             }
           }
       }
@@ -108,6 +128,12 @@ $imgSize: 2.2vw;
               justify-content: center;
                 font-size: $tabletLargeFont;
           }
+          @include mobile {
+              font-size: $tabletLargeFont * 1.5;
+              text-align: left;
+              justify-content: flex-start;
+              padding-left: 5vw;
+          }
           .circle{
               margin-top: $largeFont * .5;
               margin-bottom: auto;
@@ -117,6 +143,16 @@ $imgSize: 2.2vw;
               background-color: black;
               border-radius: 100px;
               opacity: 0;
+              @include tablet{
+                  margin-top: $tabletLargeFont * .5;
+                  width: $tabletLargeFont / 6;
+                  height: $tabletLargeFont / 6;
+              }
+              @include mobile{
+                  margin-top: $tabletLargeFont * .75;
+                  width: $tabletLargeFont * .2;
+                  height: $tabletLargeFont * .2;
+              }
           }
           .circle2{
               display: none;
@@ -145,6 +181,14 @@ $imgSize: 2.2vw;
             margin: auto;
             padding: $tabletLargeFont * .4 0;
         }
+          @include mobile{
+              flex-direction: column;
+              margin-left: auto;
+              margin-right: 12%;
+              transform: translateY(4%);
+//              border-left: solid black 1px;
+              width: 14vw;
+          }
           a{
               @include animate;
           }
@@ -158,6 +202,14 @@ $imgSize: 2.2vw;
             @include tablet{
                 width: $imgSize * 2;
                 height: $imgSize * 2;
+            }            
+            @include mobile{
+                width: $imgSize * 3;
+                height: $imgSize * 3;
+                margin-top: auto;
+                margin-bottom: auto;
+                margin-right: 0;
+                margin-left: auto;
             }
         }
       }

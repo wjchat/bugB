@@ -38,6 +38,9 @@
                 width: 100%;
                 text-align: center;
             }
+            @include mobile{
+                font-size: $tabletLargeFont * 1.5;
+            }
         }
     }
     div{
@@ -117,6 +120,7 @@
                 display: flex;
                 opacity: 1;
                 filter: blur(0px);
+                background-color: rgba(0,0,0,.3);
             }
         }
         h2{
@@ -124,12 +128,18 @@
             @include tablet{
                 font-size: $tabletMedFont;
             }
+            @include mobile{
+                font-size: $tabletMedFont * 1.5;
+            }
         }
         h3{
             margin-top: 3%;
             @include smallSans;
             @include tablet{
                 font-size: $tabletSmallFont;
+            }
+            @include mobile{
+                font-size: $tabletSmallFont * 1.5;
             }
         }
     }

@@ -54,6 +54,9 @@
             @include tablet{
                 font-size: $tabletSmallFont;
             }
+            @include mobile{
+                font-size: $tabletSmallFont * 1.5;
+            }
         }
     }
 }

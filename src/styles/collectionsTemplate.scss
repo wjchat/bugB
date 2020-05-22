@@ -9,6 +9,9 @@
         @include tablet{
             font-size: $tabletLargeFont;
         }
+        @include mobile{
+            font-size: $tabletLargeFont * 1.5;
+        }
     }
     &>h3{
         width: 33%;
@@ -25,6 +28,9 @@
             font-size: $tabletSmallFont;
             width: 66%;
         }
+        @include mobile{
+            font-size: $tabletSmallFont * 1.5;
+        }
     }
     .flexbox{
         width: 100%;
@@ -40,6 +46,10 @@
     height: 100%;
     width: 100%;
     display: flex;
+    @include tablet{
+        flex-wrap: wrap;
+        height: fit-content;
+    }
     .imageContainer{
         margin-left: 5%;
         height: 100%;
@@ -47,8 +57,10 @@
         margin-right: 5%;
         position: relative;
         @include tablet{
-            width: 60%;
-            margin-right: 0;
+            width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+            height: 70vh;
         }
         .invisible{
             opacity: 0;
@@ -69,8 +81,8 @@
                     height: 15vw;
                     width: 15vw;
                     @include tablet{
-                        height: 25vw;
-                        width: 25vw;
+                        height: 60vw;
+                        width: 60vw;
                     }
                 }
                 & > .small{
@@ -96,6 +108,9 @@
                 @include tablet{
                     height: 15vw;
                 }
+                @include mobile{
+                    height: 22vw;
+                }
                 h2{
                     @include largeSans;
                     width: 100%;
@@ -103,6 +118,9 @@
                     height: fit-content;
                     @include tablet{
                         font-size: $tabletMedFont;
+                    }
+                    @include mobile{
+                        font-size: $tabletMedFont * 1.5;
                     }
                 }
             }
@@ -116,6 +134,9 @@
                 @include tablet{
                     padding-bottom: 5vw;
                 }
+                @include mobile{
+                    padding-bottom: 8vw;
+                }
                 div{
                     display: flex;
                     flex-direction: row;
@@ -124,6 +145,9 @@
                         @include smallSans;
                         @include tablet{
                             font-size: $tabletSmallFont;
+                        }
+                        @include mobile{
+                            font-size: $tabletSmallFont * 1.5;
                         }
                     }
                 }
@@ -137,6 +161,9 @@
                     @include tablet{
                         font-size: $tabletSmallFont;
                     }
+                @include mobile{
+                    font-size: $tabletSmallFont * 1.5;
+                }
             }
         }
     }
@@ -149,6 +176,10 @@
         justify-content: center;
         @include tablet{
             margin-left: 0;
+            width: 90%;
+            height: fit-content;
+            margin-left: auto;
+            margin-right: auto;
         }
         &>.flexBox{
             width: 90%;
@@ -157,22 +188,28 @@
             justify-content: space-between;
             margin-left: auto;
             @include tablet{
-                width: 25vw;
-                flex-direction: column;
-                margin: auto;
                 flex-wrap: nowrap;
+                width: 100%;
+                justify-content: flex-start;
+                margin-top: 6.333vw;
             }
         }
     }
     .articleBox{
         height: 50%;
         padding: 2.5vh 0;
+        @include tablet{
+            padding: 0;
+        }
         .article{
             width: 15vw; //same as imgContainer
             height: 100%;
             display: flex;
             flex-direction: column;
             position: relative;
+            @include tablet{
+                width: 25%;
+            }
             .imgContainer{
                 width: 15vw;
                 height: 15vw;
@@ -182,9 +219,9 @@
                 margin-left: auto;
                 margin-right: auto;
                 @include tablet{
-                    height: 25vw;
-                    width: 25vw;
-                    
+                    height: 22.5vw;
+                    width: 22.5vw;
+                    margin: 0;
                 }
                 img{
                     object-fit: cover;
@@ -223,6 +260,7 @@
                     @include tablet{
                         width: 25vw;
                         font-size: $tabletSmallFont;
+                        display: none;
                     }
                 }
             }
@@ -241,8 +279,8 @@
                 margin-left: auto;
                 margin-right: auto;
                 @include tablet{
-                    height: 25vw;
-                    width: 25vw;
+                    height: 22.5vw;
+                    width: 22.5vw;
                 }
                 h3{
                     width: 100%;

@@ -24,16 +24,26 @@ margin-top: 10%;
     display: flex;
     justify-content: center;
       position: relative;
+      @include tablet{
+          flex-wrap: wrap;
+      }
+      @include mobile{
+          margin-bottom: 5vh;
+      }
     &>h1 {
     @include largeSer;
-        @include tablet{
-            font-size: $tabletLargeFont;
-        }
       opacity: 0;
       margin-left: 1vw;
         height: fit-content;
         transform: translateY(20px) rotate(1deg);
-        
+        @include tablet{
+            font-size: $tabletLargeFont;
+            padding-bottom: 0;
+        }
+        @include mobile{
+            font-size: $tabletLargeFont * 1.5;
+            width: 100%;
+        }
     }
   }
   h2 {
@@ -41,6 +51,9 @@ margin-top: 10%;
     font-size: $largeFont / 2;
       @include tablet{
           font-size: $tabletMedFont;
+      }
+      @include mobile{
+          font-size: $tabletSmallFont * 1.5;
       }
     grid-area: second;
     line-height: 120%;
@@ -70,6 +83,9 @@ margin-top: 10%;
       object-fit: cover;
       height: 100%;
     transform: scale(1.3);
+        @include mobile{
+            height: 50%;
+        }
     }
   }
 }

@@ -31,6 +31,10 @@ $circleSize: 0.4vw;
           height: 10vw;
           width: 10vw;
       }
+      @include mobile{
+          height: 15vw;
+          width: 15vw;
+      }
     .pop {
       position: absolute;
       height: 0.4vw;
@@ -93,6 +97,9 @@ $circleSize: 0.4vw;
       @include tablet{
           margin-top: 4vw;
       }
+      @include mobile{
+          margin-top: 7vw;
+      }
     .navMenu{
         display: none;        
     }
@@ -119,6 +126,10 @@ $circleSize: 0.4vw;
     border-radius: 10vw;
     background-color: black;
     opacity: 0;
+      @include mobile{
+          height: 3px;
+          width: 3px;
+      }
   }
   h1 {
     margin-left: 3px;
@@ -131,6 +142,9 @@ $circleSize: 0.4vw;
     @include tablet{
             font-size: 2vw;
             padding-right: 2vw;
+      }
+      @include mobile{
+          font-size: $tabletSmallFont * 1.5;
       }
   }
     .circle2{

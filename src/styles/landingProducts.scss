@@ -2,6 +2,9 @@
 
 .productsContainer {
   padding-top: 30vh;
+      @include mobile{
+          padding-top: 0;
+      }
   & > h1 {
     @include largeSer;
     width: 100%;
@@ -10,6 +13,9 @@
       @include tablet{
           font-size: $tabletLargeFont;
           margin-bottom: 10vh;
+      }
+      @include mobile{
+          font-size: $tabletLargeFont * 1.5;
       }
   }
   & > .flexbox {
@@ -41,6 +47,9 @@
               @include tablet{
                   font-size: $tabletSmallFont;
               }
+              @include mobile{
+                  font-size: $tabletSmallFont * 1.5;
+              }
           }          
           &>h2{
               @include smallSans;
@@ -50,6 +59,9 @@
               justify-content: space-between;
               @include tablet{
                   font-size: $tabletSmallFont;
+              }
+              @include mobile{
+                  font-size: $tabletSmallFont * 1.5;
               }
               span{
                   padding-bottom: 1vw;
@@ -79,6 +91,12 @@
                     text-align: center;
                     @include largeSans;
                     color: white;
+              @include tablet{
+                  font-size: $tabletMedFont;
+              }              
+                @include mobile{
+                  font-size: $tabletMedFont * 1.5;
+              }
             }
           }
           .soldOut + a{
