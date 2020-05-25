@@ -1,7 +1,3 @@
-require("dotenv").config({  
-  path: `.env.${process.env.NODE_ENV}`,
-})
-
 module.exports = {
   pathPrefix: "/bugb",
   siteMetadata: {
@@ -10,39 +6,24 @@ module.exports = {
     author: `Will`,
   },
   plugins: [
-{
+    {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         // The property ID; the tracking code won't be generated without it
         trackingId: "UA-167572949-1",
-        // Defines where to place the tracking script - `true` in the head and `false` in the body
-        head: true,
-        // Setting this parameter is optional
-        anonymize: true,
-        // Setting this parameter is also optional
-        respectDNT: true,
-        // Avoids sending pageview hits from custom paths
-        exclude: ["/preview/**", "/do-not-track/me/too/"],
-        // Delays sending pageview hits on route update (in milliseconds)
-        pageTransitionDelay: 0,
-        // Defers execution of google analytics script after page load
-        defer: false,
-        // Any additional optional fields
-        sampleRate: 5,
-        siteSpeedSampleRate: 10,
-        cookieDomain: "https://master.d3amzip69qnu33.amplifyapp.com/",
+        head: "true",
       },
     },
 
     `gatsby-plugin-react-helmet`,
     "gatsby-plugin-sass",
-      `gatsby-plugin-transition-link`,
-      {
-        resolve: `gatsby-source-instagram`,
-        options: {
-          username: `bugbvintage`,
-        },
+    `gatsby-plugin-transition-link`,
+    {
+      resolve: `gatsby-source-instagram`,
+      options: {
+        username: `bugbvintage`,
       },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -64,20 +45,17 @@ module.exports = {
         icon: `src/images/logo.svg`, // This path is relative to the root of the site.
       },
     },
-{
+    {
       resolve: "gatsby-source-strapi",
       options: {
-        apiURL: process.env.API_URL || "https://bugb-backend.herokuapp.com",   contentTypes: [
+        apiURL: "https://bugb-backend.herokuapp.com",
+        contentTypes: [
           // List of the Content Types you want to be able to request from Gatsby.
           "collections",
           "clothing-images",
           "clothing-piece",
         ],
-          singleTypes:[
-              "front-page",
-              "large-nav",
-              "about-page",
-          ],
+        singleTypes: ["front-page", "large-nav", "about-page"],
         queryLimit: 1000,
       },
     },
