@@ -1,3 +1,4 @@
+
 module.exports = {
   pathPrefix: "/bugb",
   siteMetadata: {
@@ -12,6 +13,12 @@ module.exports = {
         // The property ID; the tracking code won't be generated without it
         trackingId: "UA-167572949-1",
         head: "true",
+      },
+    },
+    {
+      resolve: `gatsby-source-instagram-all`,
+      options: {
+        access_token: "IGQVJWelpTeWEzUGs2T0theUh1ZA2F5bjR1YmZAFSkk4YmFiVUdwMm0xYnZAyemtEVG1xQmUzYm9mc1JqR1ZA4OGFQTXo1R254VEJuNzM3ZA3MtVHFyZAGdhQ3dvX1Q1TC1GSU05TlVnVXFwMDRFWFpiUzZATZAwZDZD",
       },
     },
 
