@@ -15,6 +15,7 @@ const AboutPage = props =>{
             <h3>scroll down</h3>
             <Values />
         </div>
+        <Insta />
     </Layout>)
 }
 

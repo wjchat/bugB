@@ -7,11 +7,21 @@
     width: 100%;
     justify-content: space-between;
     padding: 0 5vw;
+    margin-bottom: 30vh;
+    @include tablet{
+        margin-bottom: 40vh;
+    }
     .title{
         width: 100%;
         margin-top: 50vh;
+        @include tablet{
+            margin-top: 0vh;
+        }
         h1{
             padding: 0;
+            @include largeSer;
+            width: 100%;
+            text-align: center;
         }
         h2{
             margin-bottom: -2vw;

@@ -65,39 +65,26 @@ const Post = props =>{
     )
 }
 const Insta = props =>{
-//    const data = useStaticQuery(graphql`
-//    query Posts {
-//  allInstaNode(limit: 6, sort: {fields: timestamp, order: DESC}) {
-//    edges {
-//      node {
-//        localFile {
-//          publicURL
-//        }
-//        original
-//        caption
-//        timestamp
-//        likes
-//      }
-//    }
-//  }
-//  strapiLargeNav {
-//    instagramLink
-//  }
-//}
-//`)
+    const data = useStaticQuery(graphql`
+    query Posts {
+  strapiLargeNav {
+    instagramLink
+  }
+}
+`)
 //    const items = data.allInstaNode.edges
-//    const link = data.strapiLargeNav.instagramLink
+    const link = data.strapiLargeNav.instagramLink
 //    useEffect(()=>{
 //        console.log(items)
 //        console.log('ok')
 //    }, [])
     return(
         <div className = "instaFlex">
-        {/*}
        <div className = "title">
            <h1>Connect with us on Instagram</h1>
            <h2><a href={link} target = "_blank">@bugbvintage</a></h2>
        </div>
+        {/*
         {items.map((item)=>
                 <Post 
                 link = {link}
