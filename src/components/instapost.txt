@@ -1,0 +1,14 @@
+        <div className = "instaFlex">
+       <div className = "title">
+           <h1>Connect with us on Instagram</h1>
+           <h2><a href={link} target = "_blank">@bugbvintage</a></h2>
+       </div>
+        {items.map((item)=>
+                <Post 
+                link = {link}
+                 image = {item.node.original}
+                 caption = {item.node.caption}
+                 timestamp = {item.node.timestamp}
+                 />
+                  )}
+    </div>

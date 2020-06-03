@@ -2088,7 +2088,7 @@ axios@^0.18.0:
     follow-redirects "1.5.10"
     is-buffer "^2.0.2"
 
-axios@^0.19.0, axios@^0.19.2:
+axios@^0.19.2:
   version "0.19.2"
   resolved "https://registry.yarnpkg.com/axios/-/axios-0.19.2.tgz#3ea36c5d8818d0d5f8a8a97a6d36b86cdc00cb27"
   dependencies:
@@ -5585,13 +5585,6 @@ gatsby-source-instagram-all@^2.0.5:
     gatsby-source-filesystem "^2.0.12"
     node-fetch "^2.2.0"
     query-string "^6.1.0"
-
-gatsby-source-instagram@^0.7.2:
-  version "0.7.2"
-  resolved "https://registry.yarnpkg.com/gatsby-source-instagram/-/gatsby-source-instagram-0.7.2.tgz#302960ecf1c3c931b2395c180fe0272f092adc2c"
-  integrity sha512-fYTkLw2sT6wvgSSgr7wL1+Cvfn+b3gCcZCKD23sQJm7EXvWIR1UkbXkwWO3staDkkgRbvhccIhEyIid3pzREOw==
-  dependencies:
-    axios "^0.19.0"
 
 gatsby-source-strapi@^0.0.12:
   version "0.0.12"

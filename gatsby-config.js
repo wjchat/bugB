@@ -19,12 +19,6 @@ module.exports = {
     "gatsby-plugin-sass",
     `gatsby-plugin-transition-link`,
     {
-      resolve: `gatsby-source-instagram`,
-      options: {
-        username: `bugbvintage`,
-      },
-    },
-    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
