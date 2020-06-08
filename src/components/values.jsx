@@ -86,6 +86,13 @@ const Values = props => {
                 <li>{data.strapiAboutPage.value2}.</li>
                 <li>{data.strapiAboutPage.value3}.</li>
             </ul>
+       </div>       
+        <div className = "mobileValues">
+            <h2>
+                {data.strapiAboutPage.value1},
+                {data.strapiAboutPage.value2},
+                {data.strapiAboutPage.value3}.
+            </h2>
        </div>
         <div className = "second">
             <p className = "container">

@@ -3,6 +3,8 @@ import { TimelineMax, TweenLite, gsap } from "gsap"
 import Menu from "./navMenu.jsx"
 import Logo from "../images/logo.svg"
 import TransitionLink from 'gatsby-plugin-transition-link'
+import { OutboundLink } from "gatsby-plugin-google-analytics"
+
 
 import "../styles/header.scss"
 
@@ -88,12 +90,12 @@ const NavItem = props => {
           </h1>
           </TransitionLink>
           :
-          <a href = "https://www.etsy.com/shop/BugBVintage?ref=simple-shop-header-name&listing_id=782336324" target = "__blank" >
+          <OutboundLink href = "https://www.etsy.com/shop/BugBVintage?ref=simple-shop-header-name&listing_id=782336324" target = "__blank" >
           <div ref={div => (circle = div)} className="circle"></div>
           <h1 ref={div => (text = div)}>
           {props.title}
           </h1>
-          </a>
+          </OutboundLink>
           }
     </div>
   )
@@ -146,7 +148,7 @@ const Header = (props) => {
     let popray = [pop1, pop4, pop3, pop2, pop6, pop8, pop5, pop7]
     tl2.pause()
     for (let each of popray) {
-      let tw = TweenLite.to(each, 0, {
+      gsap.set(each, {
         opacity: 0,
       })
     }
@@ -216,12 +218,12 @@ const Header = (props) => {
   return (
     <NavContain ref={div => (nav = div)}>
       <div
-        onMouseLeave={()=>mouseOut()}
-        onMouseOver={()=>mouseIn()}
         ref={div => (one = div)}
         className="image pointerChild"
       >
         <TransitionLink
+        onMouseLeave={()=>mouseOut()}
+        onMouseMove={()=>mouseIn()}
         onClick = {()=>mouseOut()}
         exit = {{
                         trigger: () => props.transitionOut(),

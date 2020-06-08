@@ -5,6 +5,8 @@ import letterX from '../images/letter-x.svg';
 import {gsap, Power2} from "gsap";
 import ReactMarkdown from "react-markdown" 
 import Img from "gatsby-image"
+import { OutboundLink } from "gatsby-plugin-google-analytics"
+
 
 const ArticleDeats = props =>{
     const item = props.item
@@ -18,9 +20,9 @@ const ArticleDeats = props =>{
                    fluid={item.image.childImageSharp.fluid}  alt=""  />
               </div>
            </div>
-            <a className = "small"  target = "_blank" href={item.link}>
+            <OutboundLink className = "small"  target = "_blank" href={item.link}>
                <img src={externalLink} alt=""/>
-           </a>
+           </OutboundLink>
         </div>
         <div className = "name">
             <h2>{item.name}</h2>
@@ -118,7 +120,7 @@ const Switcher = props =>{
         const duration = .3
         if(animate != null){
             if(slot1 === null){
-                console.log('firing1')
+//                console.log('firing1')
                //get net frame ting
                 let nextFrame
                 if(props.articleDeats ===null){

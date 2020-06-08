@@ -80,7 +80,7 @@ const Home = () => {
 
           <div className="rightContain">
             <div className="text">
-              <div ref={div => (one = div)}>Vintage Styles</div>
+              <div ref={div => (one = div)}>Vintage Clothing</div>
               <div ref={div => (two = div)}>for the</div>
               <div ref={div => (three = div)}>Modern World</div>
               <div ref={div => (four = div)}></div>

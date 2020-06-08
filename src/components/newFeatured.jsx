@@ -4,6 +4,7 @@ import { TweenLite } from "gsap"
 import { useStaticQuery, graphql, Link } from "gatsby"
 import "../styles/newFeatured.scss"
 import TransitionLink from 'gatsby-plugin-transition-link'
+import { OutboundLink } from "gatsby-plugin-google-analytics"
 
 
 const Overlay = props => {
@@ -187,7 +188,7 @@ const NewFeaturedContainer = (props) => {
         </TransitionLink>
       </div>
       <div className="feat1">
-       <a href={featured1.link} target = "__blank">
+       <OutboundLink href={featured1.link} target = "__blank">
         <Overlay name={featured1.Name} price={`$${featured1.Price}`} />
         <Parrallax
           speed={1}
@@ -195,10 +196,10 @@ const NewFeaturedContainer = (props) => {
           alt="ok"
           className="image"
         />
-        </a>
+        </OutboundLink>
       </div>      
       <div className="feat1 mobile">
-       <a href={featured1.link} target = "__blank">
+       <OutboundLink href={featured1.link} target = "__blank">
             <div className = "overlay mobile">
                 <h2>{featured1.Name}</h2>
                 <h3>${featured1.Price}</h3>
@@ -209,22 +210,22 @@ const NewFeaturedContainer = (props) => {
           alt="ok"
           className="image"
         />
-        </a>
+        </OutboundLink>
       </div>
       <div className="feat2">
-       <a href={featured2.link} target = "__blank">
+       <OutboundLink href={featured2.link} target = "__blank">
         <Overlay name={featured2.Name} price={`$${featured2.Price}`} />
         <Parrallax speed={1} src={featured2.photo.publicURL} alt="ok" className="image" />
-        </a>
+        </OutboundLink>
       </div>      
       <div className="feat2 mobile">
-       <a href={featured2.link} target = "__blank">
+       <OutboundLink href={featured2.link} target = "__blank">
             <div className = "overlay mobile">
                 <h2>{featured2.Name}</h2>
                 <h3>${featured2.Price}</h3>
             </div>
         <Parrallax speed={1} src={featured2.photo.publicURL} alt="ok" className="image" />
-        </a>
+        </OutboundLink>
       </div>
     </div>
   )

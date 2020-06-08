@@ -2,6 +2,8 @@ import React,{useEffect, useState} from 'react';
 import {graphql, useStaticQuery} from "gatsby"
 import gsap from "gsap"
 import "../styles/insta.scss"
+import { OutboundLink } from "gatsby-plugin-google-analytics"
+
 
 
 const Post = props =>{
@@ -50,7 +52,7 @@ const Post = props =>{
                        onMouseEnter = {()=>updateHover(true)}
                        onMouseLeave = {()=>updateHover(false)}
                        ref = {div=>animate=div} className = "post">
-                        <a href={props.link} target = "_blank">
+                        <OutboundLink href={props.link} target = "_blank">
                       <img src={props.image} alt="bugb vintage"/>
                       <div className = "overlay">
                           <h2>{caption}</h2>
@@ -60,7 +62,7 @@ const Post = props =>{
                                  
                                   </h2>
                       </div>
-                      </a>
+                      </OutboundLink>
                   </div>
     )
 }

@@ -5,13 +5,33 @@
     width: 100%;
     padding: 0 5vw;
     padding-top: 0vh;
-    
+    @include mobile{
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+    .mobileValues{
+        display: none;
+        @include mobile{
+            display: block;
+            height: 10vh;
+            h2{
+                @include largeSer;
+                font-size: $headerFont * .9;
+                margin-top: 20vh;
+                width: 100%;
+                text-align: center;
+            }
+        }
+    }
     &>.first{
         width: 35.5%;
           position: -webkit-sticky; /* Safari */
           position: sticky;
           top: 1px;
         position: relative;
+        @include mobile{
+            display: none;
+        }
         ul{
             height: 100vh;
             position: absolute;
@@ -43,6 +63,10 @@
         padding-top: 90vh;
         @include tablet{
             width: 60%;
+        }
+        @include mobile{
+            width: 100%;
+            padding-top: 20vh;
         }
         p.container{
             @include largeSer;

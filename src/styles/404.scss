@@ -1,0 +1,16 @@
+@import "global";
+
+.notFound{
+    height: 80vh;
+    &>h1{
+        @include headSer;
+        font-size: 30vw;
+        position: absolute;
+        height: 80vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 0;
+        top: 0;
+    }
+}

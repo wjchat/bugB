@@ -23,6 +23,9 @@ import "../styles/default.css"
 import "../styles/layout.scss"
 
 const LoadingIcon = () =>{
+    useEffect(()=>{
+        console.log("Website designed & developed by Will Chatterson (wchatterson@gmail.com)")
+    }, [])
     let animate
 //    useEffect(()=>{
 //        let tl = gsap.timeline({repeat: -1});

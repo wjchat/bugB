@@ -2,40 +2,37 @@ import React,{useState, useEffect} from 'react';
 import "../styles/landingProducts.scss"
 import {useStaticQuery, graphql} from "gatsby"
 import gsap from 'gsap'
+import { OutboundLink } from "gatsby-plugin-google-analytics"
+import Img from "gatsby-image"
+
 
 const LandingCard = props =>{
     let animate
     let duration = .2
     const [hovering, updateHover] = useState(false)
-    const [currentImage, updateImage] = useState(props.item.image.publicURL)
-    useEffect(()=>{
-        if(hovering){
-            gsap.to(animate, duration,{
-//                scale: 1.05,
-            })
-        }else{
-            gsap.to(animate, duration,{
-//                scale: 1,
-            })
-        }
-    }, [hovering])
+    const [showImg, updateShow] = useState(false)
     return(<div className = {props.className}>
        <div>
           {props.item.soldOut ? <div className = "soldOut">
               <h3>Sold Out</h3>
           </div> : ""}
-           <a href={props.item.link} 
+           <OutboundLink href={props.item.link} 
                target = "_blank"
                onMouseEnter = {()=>updateHover(true)}
                onMouseLeave = {()=>updateHover(false)}
                className = "link"
                >
-                <img 
-                ref = {div=>animate=div}
-                onMouseEnter = {()=>updateImage(props.item.image2.publicURL)}
-                onMouseLeave = {()=>updateImage(props.item.image.publicURL)}
-                src={currentImage} alt={props.item.name}/>
-            </a>
+               <div className = "imgContainer" ref = {div=>animate=div}
+                    onMouseEnter = {()=>updateShow(true)}
+                    onMouseLeave = {()=>updateShow(false)}
+                   >
+                    <Img 
+                    fluid={props.item.image.childImageSharp.fluid} alt={props.item.name}/>     
+                                   
+                   {showImg ? <Img className = "top"
+                    fluid={props.item.image2.childImageSharp.fluid} alt={props.item.name}/> : ""}
+                </div>
+            </OutboundLink>
             <h1>{props.item.name}</h1>
             <h2><span>Size: {props.item.size != undefined ? <span>{props.item.size}</span> : <span>N/A</span>}</span>
             <span>${props.item.price}</span>
@@ -57,10 +54,18 @@ const LandingProducts = props =>{
                 size
                 soldOut
                 image {
-                  publicURL
+                  childImageSharp {
+                    fluid {
+                      ...GatsbyImageSharpFluid_withWebp
+                    }
+                  }
                 }
                 image2{
-                publicURL
+                  childImageSharp {
+                    fluid {
+                      ...GatsbyImageSharpFluid_withWebp
+                    }
+                  }
             }
             }
           }

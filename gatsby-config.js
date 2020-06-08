@@ -15,13 +15,6 @@ module.exports = {
         head: "true",
       },
     },
-    {
-      resolve: `gatsby-source-instagram-all`,
-      options: {
-        access_token: "IGQVJWelpTeWEzUGs2T0theUh1ZA2F5bjR1YmZAFSkk4YmFiVUdwMm0xYnZAyemtEVG1xQmUzYm9mc1JqR1ZA4OGFQTXo1R254VEJuNzM3ZA3MtVHFyZAGdhQ3dvX1Q1TC1GSU05TlVnVXFwMDRFWFpiUzZATZAwZDZD",
-      },
-    },
-
     `gatsby-plugin-react-helmet`,
     "gatsby-plugin-sass",
     `gatsby-plugin-transition-link`,

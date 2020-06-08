@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { gsap, Power2 } from "gsap"
 import "../styles/imageWindow.scss"
+import Img from "gatsby-image"
 
 const ImgWindow = props => {
     let animate
@@ -24,7 +25,9 @@ const ImgWindow = props => {
     })
   return (
     <div className="window">
-      <img ref={div=>animate=div} src={props.image} alt="BugB Vintage" />
+     <div ref={div=>animate=div}>
+          <Img  fluid={props.image} alt="BugB Vintage" />
+      </div>
     </div>
   )
 }
