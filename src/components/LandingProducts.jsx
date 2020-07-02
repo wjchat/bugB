@@ -1,4 +1,4 @@
-import React,{useState, useEffect} from 'react';
+import React,{useState, useEffect, useCallback} from 'react';
 import "../styles/landingProducts.scss"
 import {useStaticQuery, graphql} from "gatsby"
 import gsap from 'gsap'
@@ -8,9 +8,32 @@ import Img from "gatsby-image"
 
 const LandingCard = props =>{
     let animate
+    let top
     let duration = .2
     const [hovering, updateHover] = useState(false)
-    const [showImg, updateShow] = useState(false)
+    const [topIn, updateTopIn] = useState(null)
+    
+    //initialize ref and give it to state
+    useEffect(()=>{
+        if(top){
+            updateTopIn(top)
+        }
+    }, [top])
+    
+    //top image fades in while hovering over container. otherwise, fades out.
+    const showTop  = useCallback((b)=>{
+        if(!topIn){
+            alert("oops")
+            return
+        }
+        let op = b === true ? 1 : 0;
+        let blur = b === true ? 0 : 2;
+        gsap.to(topIn, .3,{
+            opacity: op,
+            filter: `blur(${blur}px)`,
+        })
+        console.log(topIn)
+    }, [topIn])
     return(<div className = {props.className}>
        <div>
           {props.item.soldOut ? <div className = "soldOut">
@@ -18,19 +41,18 @@ const LandingCard = props =>{
           </div> : ""}
            <OutboundLink href={props.item.link} 
                target = "_blank"
-               onMouseEnter = {()=>updateHover(true)}
-               onMouseLeave = {()=>updateHover(false)}
                className = "link"
                >
                <div className = "imgContainer" ref = {div=>animate=div}
-                    onMouseEnter = {()=>updateShow(true)}
-                    onMouseLeave = {()=>updateShow(false)}
+                    onMouseEnter = {()=>showTop(true)}
+                    onMouseLeave = {()=>showTop(false)}
                    >
                     <Img 
                     fluid={props.item.image.childImageSharp.fluid} alt={props.item.name}/>     
-                                   
-                   {showImg ? <Img className = "top"
-                    fluid={props.item.image2.childImageSharp.fluid} alt={props.item.name}/> : ""}
+                    <div className = "top" ref = {div=>top=div}>      
+                   <Img
+                    fluid={props.item.image2.childImageSharp.fluid} alt={props.item.name}/> 
+                    </div>
                 </div>
             </OutboundLink>
             <h1>{props.item.name}</h1>
@@ -55,14 +77,14 @@ const LandingProducts = props =>{
                 soldOut
                 image {
                   childImageSharp {
-                    fluid {
+                    fluid(quality: 90) {
                       ...GatsbyImageSharpFluid_withWebp
                     }
                   }
                 }
                 image2{
                   childImageSharp {
-                    fluid {
+                    fluid(quality: 90) {
                       ...GatsbyImageSharpFluid_withWebp
                     }
                   }

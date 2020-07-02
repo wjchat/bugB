@@ -35,6 +35,18 @@ $circleSize: 0.4vw;
           height: 15vw;
           width: 15vw;
       }
+      .desktopLogo{
+          @include mobile{
+              display: none;
+          }
+      }
+      .mobileLogo{
+          display: none;
+          @include mobile{
+              display: block;
+              border-radius: 100%;
+          }
+      }
     .pop {
       position: absolute;
       height: 0.4vw;

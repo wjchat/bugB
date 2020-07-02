@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback } from "react"
 import { TimelineMax, TweenLite, gsap } from "gsap"
 import Menu from "./navMenu.jsx"
 import Logo from "../images/logo.svg"
+import MobileLogo from "../images/mobileLogo.png"
 import TransitionLink from 'gatsby-plugin-transition-link'
 import { OutboundLink } from "gatsby-plugin-google-analytics"
 
@@ -232,7 +233,7 @@ const Header = (props) => {
         entry = {{
                       delay: .5,
                   }}
-          to ="/"><img ref={div => (logo = div)} src={Logo} alt="Logo" /></TransitionLink>
+          to ="/"><img className = "desktopLogo" ref={div => (logo = div)} src={Logo} alt="Logo" /><img className = "mobileLogo" src={MobileLogo} alt=""/></TransitionLink>
         <div className="pop pop1" ref={div => (pop1 = div)}></div>
         <div className="pop pop2" ref={div => (pop2 = div)}></div>
         <div className="pop pop3" ref={div => (pop3 = div)}></div>

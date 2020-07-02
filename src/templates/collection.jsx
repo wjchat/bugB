@@ -23,7 +23,7 @@ export const query = graphql`
           }
           image {
             childImageSharp {
-              fluid {
+              fluid(quality: 90) {
                 ...GatsbyImageSharpFluid_withWebp
               }
             }
@@ -38,7 +38,7 @@ export const query = graphql`
             image {
               publicURL
               childImageSharp {
-                fluid{
+                fluid(quality: 100){
                 aspectRatio
                   ...GatsbyImageSharpFluid_withWebp
                 }

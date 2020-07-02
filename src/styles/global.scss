@@ -14,6 +14,9 @@ $tabletLargeFont: 7vw;
 
 html{
     scroll-behavior: smooth;
+    
+    //for firefox
+    scrollbar-width: none;
 }
 
 @mixin mobile {

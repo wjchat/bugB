@@ -266,7 +266,7 @@ const LargeScreen = props => {
         storeLink
         navPhoto {
           childImageSharp {
-            fluid {
+            fluid(quality: 100) {
               ...GatsbyImageSharpFluid_withWebp
             }
           }

@@ -3,8 +3,9 @@ import React, { useEffect, useState } from "react"
 import { TweenLite } from "gsap"
 import { useStaticQuery, graphql, Link } from "gatsby"
 import "../styles/newFeatured.scss"
-import TransitionLink from 'gatsby-plugin-transition-link'
+import TransitionLink from "gatsby-plugin-transition-link"
 import { OutboundLink } from "gatsby-plugin-google-analytics"
+import Image from "gatsby-image"
 
 
 const Overlay = props => {
@@ -83,15 +84,15 @@ const Parrallax = props => {
     )
   })
   return (
-    <img
-      ref={div => (img1 = div)}
-      className={props.className}
-      src={props.src}
-      alt={props.alt}
-    />
+    <div
+    ref={div => (img1 = div)}
+     className={props.className}
+    >
+    <Image fluid = {props.src} alt = {props.alt} />
+    </div>
   )
 }
-const NewFeaturedContainer = (props) => {
+const NewFeaturedContainer = props => {
   const data = useStaticQuery(graphql`
     query newFeatured {
       strapiFrontPage {
@@ -102,6 +103,11 @@ const NewFeaturedContainer = (props) => {
           Price
           photo {
             publicURL
+            childImageSharp {
+              fluid(quality: 100) {
+                ...GatsbyImageSharpFluid_withWebp
+              }
+            }
           }
         }
         featuredClothing2 {
@@ -110,121 +116,141 @@ const NewFeaturedContainer = (props) => {
           Price
           photo {
             publicURL
+            childImageSharp {
+              fluid(quality: 100) {
+                ...GatsbyImageSharpFluid_withWebp
+              }
+            }
           }
         }
       }
-  allStrapiCollections {
-    edges {
-      node {
-        name
-        cover {
-          publicURL
+      allStrapiCollections {
+        edges {
+          node {
+            name
+            cover {
+              publicURL
+            childImageSharp {
+              fluid(quality: 100) {
+                ...GatsbyImageSharpFluid_withWebp
+              }
+            }
+            }
+            strapiId
+            id
+          }
         }
-        strapiId
-        id
       }
-    }
-  }
     }
   `)
   const featured1 = data.strapiFrontPage.featuredClothing1
   const featured2 = data.strapiFrontPage.featuredClothing2
   const allCol = data.allStrapiCollections.edges
-  const collection = allCol[allCol.length-1].node
+  const collection = allCol[allCol.length - 1].node
   let passProps
   const [transition, updateTrans] = useState(null)
-  useEffect(()=>{
-      updateTrans(passProps.transitionOut)
+  useEffect(() => {
+    updateTrans(passProps.transitionOut)
   })
-    const handleClick = () =>{
-        transition();
-    }
+  const handleClick = () => {
+    transition()
+  }
   return (
-    <div ref = {div=>passProps=div} className="arrivalsContainer">
+    <div ref={div => (passProps = div)} className="arrivalsContainer">
       <div className="text">
-        <h1>
-          New & Featured
-        </h1>
+        <h1>New & Featured</h1>
       </div>
       <div className="collection desktop">
-       <TransitionLink 
-            exit = {{
-                            trigger: () => handleClick(),
-                            length: 4,
-                      }}
-            entry = {{
-                          delay: .5,
-                      }}
-           to = {`/collection/${collection.strapiId}`}>
-            <Overlay name= {collection.name} price="Collection" />
-            <Parrallax
-              speed={4}
-              src = {collection.cover.publicURL}
-              alt="ok"
-              className="image"
-            />
+        <TransitionLink
+          exit={{
+            trigger: () => handleClick(),
+            length: 4,
+          }}
+          entry={{
+            delay: 0.5,
+          }}
+          to={`/collection/${collection.strapiId}`}
+        >
+          <Overlay name={collection.name} price="Collection" />
+          <Parrallax
+            speed={4}
+            src={collection.cover.childImageSharp.fluid}
+            alt="ok"
+            className="image"
+          />
         </TransitionLink>
-      </div>      
+      </div>
       <div className="collection mobile">
-       <TransitionLink 
-            exit = {{
-                            trigger: () => handleClick(),
-                            length: 4,
-                      }}
-            entry = {{
-                          delay: .5,
-                      }}
-           to = {`/collection/${collection.strapiId}`}>
-            <div className = "overlay mobile">
-                <h2>{collection.name}</h2>
-                <h3>Collection</h3>
-            </div>
-            <Parrallax
-              speed={2}
-              src = {collection.cover.publicURL}
-              alt="ok"
-              className="image"
-            />
+        <TransitionLink
+          exit={{
+            trigger: () => handleClick(),
+            length: 4,
+          }}
+          entry={{
+            delay: 0.5,
+          }}
+          to={`/collection/${collection.strapiId}`}
+        >
+          <div className="overlay mobile">
+            <h2>{collection.name}</h2>
+            <h3>Collection</h3>
+          </div>
+          <Parrallax
+            speed={2}
+            src={collection.cover.childImageSharp.fluid}
+            alt="ok"
+            className="image"
+          />
         </TransitionLink>
       </div>
       <div className="feat1">
-       <OutboundLink href={featured1.link} target = "__blank">
-        <Overlay name={featured1.Name} price={`$${featured1.Price}`} />
-        <Parrallax
-          speed={1}
-          src={featured1.photo.publicURL}
-          alt="ok"
-          className="image"
-        />
+        <OutboundLink href={featured1.link} target="__blank">
+          <Overlay name={featured1.Name} price={`$${featured1.Price}`} />
+          <Parrallax
+            speed={1}
+            src={featured1.photo.childImageSharp.fluid}
+            alt="ok"
+            className="image"
+          />
         </OutboundLink>
-      </div>      
+      </div>
       <div className="feat1 mobile">
-       <OutboundLink href={featured1.link} target = "__blank">
-            <div className = "overlay mobile">
-                <h2>{featured1.Name}</h2>
-                <h3>${featured1.Price}</h3>
-            </div>
-        <Parrallax
-          speed={1}
-          src={featured1.photo.publicURL}
-          alt="ok"
-          className="image"
-        />
+        <OutboundLink href={featured1.link} target="__blank">
+          <div className="overlay mobile">
+            <h2>{featured1.Name}</h2>
+            <h3>${featured1.Price}</h3>
+          </div>
+          <Parrallax
+            speed={1}
+            src={featured1.photo.childImageSharp.fluid}
+            alt="ok"
+            className="image"
+          />
         </OutboundLink>
       </div>
       <div className="feat2">
-       <OutboundLink href={featured2.link} target = "__blank">
-        <Overlay name={featured2.Name} price={`$${featured2.Price}`} />
-        <Parrallax speed={1} src={featured2.photo.publicURL} alt="ok" className="image" />
+        <OutboundLink href={featured2.link} target="__blank">
+          <Overlay name={featured2.Name} price={`$${featured2.Price}`} />
+          <Parrallax
+            speed={1}
+            src={featured2.photo.childImageSharp.fluid}
+            alt="ok"
+            className="image"
+          />
         </OutboundLink>
-      </div>      
+      </div>
       <div className="feat2 mobile">
-       <OutboundLink href={featured2.link} target = "__blank">
-            <div className = "overlay mobile">
-                <h2>{featured2.Name}</h2>
-                <h3>${featured2.Price}</h3>
-            </div>
-        <Parrallax speed={1} src={featured2.photo.publicURL} alt="ok" className="image" />
+        <OutboundLink href={featured2.link} target="__blank">
+          <div className="overlay mobile">
+            <h2>{featured2.Name}</h2>
+            <h3>${featured2.Price}</h3>
+          </div>
+          <Parrallax
+            speed={1}
+            src={featured2.photo.childImageSharp.fluid}
+            alt="ok"
+            className="image"
+          />
         </OutboundLink>
       </div>
     </div>
